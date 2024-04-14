@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Frament.MainFragment"
+    android:background="@color/light20">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:theme="@style/Base.Theme.ThemeLight"
+        android:backgroundTint="@color/light100"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/yellow20"
+            android:layout_marginTop="-50dp"
+            app:cardCornerRadius="50dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="70dp"
+                android:paddingHorizontal="20dp">
+                <ImageButton
+                    android:id="@+id/main_avatar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/user"
+                    android:background="@drawable/background_ciclek"
+                    android:backgroundTint="@color/blue80"
+                    android:contentDescription="@string/listview_erron"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/main_month"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/notosans_font"
+                    android:text="Tháng"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/title3" />
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text=""
+                    android:textStyle="bold"/>
+
+                <!--                <ImageButton-->
+                <!--                    android:id="@+id/main_notification"-->
+                <!--                    android:layout_width="48dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:layout_alignParentTop="true"-->
+                <!--                    android:layout_centerHorizontal="true"-->
+                <!--                    android:background="@drawable/background_nobutton"-->
+                <!--                    android:contentDescription="@string/app_avatar"-->
+                <!--                    android:src="@drawable/notification" />-->
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130dp"
+                android:orientation="vertical">
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Số dư tài khoản"
+                    android:fontFamily="@font/notosans_font"
+                    android:textSize="@dimen/regular2"
+                    android:layout_marginBottom="@dimen/regular3"/>
+                <TextView
+                    android:id="@+id/main_sumNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/notosans_font"
+                    android:text="$9400"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/title1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_marginBottom="30dp">
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/background_nobutton"
+                    android:backgroundTint="@color/green100"
+                    android:padding="10dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_nobutton"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/light100"
+                        android:src="@drawable/frame_blue"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/light100"
+                            android:textSize="@dimen/regular1"
+                            android:fontFamily="@font/notosans_font"
+                            android:text="Tiền thu"/>
+                        <TextView
+                            android:id="@+id/main_sumCollect"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoSizeMaxTextSize="@dimen/title2"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/notosans_font"
+                            android:textColor="@color/light100"
+                            android:text="$5000"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:text=""/>
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/background_nobutton"
+                    android:backgroundTint="@color/red100"
+                    android:padding="10dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_nobutton"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/light100"
+                        android:src="@drawable/frame_red"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/regular1"
+                            android:fontFamily="@font/notosans_font"
+                            android:textColor="@color/light100"
+                            android:text="Tiền chi"/>
+                        <TextView
+                            android:id="@+id/main_sumSpent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoSizeMaxTextSize="@dimen/title2"
+                            android:fontFamily="@font/notosans_font"
+                            android:textStyle="bold"
+                            android:textColor="@color/light100"
+                            android:text="$5000"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="start">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/regular2">
+                <Button
+                    android:id="@+id/main_addIncomeButton"
+                    android:theme="@style/Base.Theme.ThemeLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm thu"
+                    android:fontFamily="@font/robuto_font"
+                    android:paddingHorizontal="@dimen/regular2"
+                    android:drawableTop="@drawable/frame_blue"
+                    android:background="@drawable/background_border"
+                    android:textColor="@color/dark100"
+                    android:textSize="@dimen/regular2"/>
+                <Button
+                    android:id="@+id/main_addExpenceButton"
+                    android:theme="@style/Base.Theme.ThemeLight"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/regular2"
+                    android:text="Thêm chi"
+                    android:fontFamily="@font/robuto_font"
+                    android:layout_marginHorizontal="@dimen/regular2"
+                    android:drawableTop="@drawable/frame_red"
+                    android:background="@drawable/background_border"
+                    android:textColor="@color/dark100"
+                    android:textSize="@dimen/regular2"/>
+                <Button
+                    android:id="@+id/main_buttonPlanMoney"
+                    android:theme="@style/Base.Theme.ThemeLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/regular2"
+                    android:text="Tiếp kiệm"
+                    android:fontFamily="@font/robuto_font"
+                    android:drawableTop="@drawable/wallet_3"
+                    android:background="@drawable/background_border"
+                    android:textColor="@color/dark100"
+                    android:textSize="@dimen/regular2"/>
+                <!--                <Button-->
+                <!--                    android:id="@+id/main_buttonTransition"-->
+                <!--                    android:theme="@style/Base.Theme.ThemeLight"-->
+                <!--                    android:layout_width="100dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:paddingHorizontal="@dimen/regular2"-->
+                <!--                    android:text="Lịch sử"-->
+                <!--                    android:drawableTop="@drawable/transaction1"-->
+                <!--                    android:background="@drawable/background_border"-->
+                <!--                    android:textColor="@color/dark100"-->
+                <!--                    android:textSize="@dimen/regular2"/>-->
+            </LinearLayout>
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:paddingTop="20dp"-->
+            <!--                android:gravity="center">-->
+            <!--                <Button-->
+            <!--                    android:id="@+id/main_buttonBudget"-->
+            <!--                    android:theme="@style/Base.Theme.ThemeLight"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:paddingHorizontal="@dimen/regular2"-->
+            <!--                    android:text="Thống kê"-->
+            <!--                    android:drawableTop="@drawable/pie_chart1"-->
+            <!--                    android:background="@drawable/background_border"-->
+            <!--                    android:textColor="@color/dark100"-->
+            <!--                    android:textSize="@dimen/regular2"/>-->
+            <!--                -->
+
+            <!--            </LinearLayout>-->
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StatedScreen"
+    android:orientation="vertical"
+    android:background="@color/light100"
+    android:padding="@dimen/regular2">
+    <ImageView
+        android:layout_marginTop="@dimen/title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/stated" />
+    <TextView
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:textSize="@dimen/title1"
+        android:textStyle="bold"
+        android:textColor="@color/dark100"
+        android:fontFamily="@font/robuto_font"/>
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hãy nhập tên của bạn để bắt đầu phần mềm"
+        android:textSize="@dimen/regular1"
+        android:textColor="@color/dark50"
+        android:fontFamily="@font/robuto_font"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        android:layout_marginTop="@dimen/regular2">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/stated_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_input"
+            android:ems="10"
+            android:hint="Nhập tên của bạn"
+            android:inputType="text"
+            android:textSize="@dimen/title3"
+            android:layout_marginTop="10dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/stated_confirm"
+        android:layout_marginTop="@dimen/title2"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xác nhận"
+        android:textSize="@dimen/title2"
+        android:textColor="@color/light100"
+        android:fontFamily="@font/robuto_font"
+        android:background="@drawable/background_border"
+        android:backgroundTint="@color/blue80" />
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Frament.BudgetFragment"
+    android:orientation="vertical"
+    android:background="@color/light100">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:id="@+id/budget_textIncome"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/blue80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thu tiền"
+            android:paddingVertical="@dimen/regular3"
+            android:textSize="@dimen/title2"
+            android:fontFamily="@font/robuto_font"
+            android:textColor="@color/dark100"/>
+        <TextView
+            android:id="@+id/budget_textExpence"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chi tiền"
+            android:paddingVertical="@dimen/regular3"
+            android:textSize="@dimen/title2"
+            android:textColor="@color/dark100"/>
+
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/budget_textSelectedDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:drawableEnd="@drawable/arrowdown"
+        android:text="Date"
+        android:fontFamily="@font/robuto_font"
+        android:textSize="@dimen/title2"
+        android:paddingLeft="@dimen/regular1" />
+    <TextView
+        android:gravity="center"
+        android:id="@+id/budget_textViewErron"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Không có dữ liệu"
+        android:visibility="gone"/>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/budget_pieChart"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/listview_erron" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/regular2">
+        <TextView
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/regular2"
+            android:textSize="@dimen/title2"
+            android:fontFamily="@font/robuto_font"
+            android:text="Tổng số tiền"/>
+        <TextView
+            android:layout_gravity="bottom"
+            android:id="@+id/budget_sumMoneyText"
+            android:layout_marginBottom="@dimen/regular2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robuto_font"
+            android:textSize="@dimen/title2"
+            android:text="$$$$$$"/>
+    </LinearLayout>
+
+</LinearLayout>

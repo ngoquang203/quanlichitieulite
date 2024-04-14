@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Frament.TransactionFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/regular2"
+        android:background="@color/light100">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title1"
+            android:fontFamily="@font/robuto_font"
+            android:text="Lịch sử"
+            android:textStyle="bold"
+            android:gravity="center"/>
+        <!--        <Button-->
+        <!--            android:id="@+id/transition_buttonImages"-->
+        <!--            android:theme="@style/Base.Theme.ThemeLight"-->
+        <!--            android:paddingHorizontal="10dp"-->
+        <!--            android:layout_width="48dp"-->
+        <!--            android:layout_height="48dp"-->
+        <!--            android:drawableEnd="@drawable/sort"-->
+        <!--            android:contentDescription="@string/app_avatar" />-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/transiton_textViewErron"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Không có dữ liệu"
+            android:visibility="gone"/>
+        <ListView
+            android:id="@+id/transiton_viewpager2"
+            android:layout_width="match_parent"
+            android:contentDescription="@string/listview_erron"
+            android:layout_height="match_parent"
+            android:background="@color/light60"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>
