@@ -14,8 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.quanlichitieulite.AdapterManagement.AdapterBill;
+import com.example.quanlichitieulite.Datasqlitemanagement.BillData;
+import com.example.quanlichitieulite.Datasqlitemanagement.BudgetData;
 import com.example.quanlichitieulite.Datasqlitemanagement.CollectMoney;
 import com.example.quanlichitieulite.Datasqlitemanagement.DetailColect;
 import com.example.quanlichitieulite.Datasqlitemanagement.SpentMoney;
@@ -25,9 +29,20 @@ import com.example.quanlichitieulite.Income;
 import com.example.quanlichitieulite.PlanMoney;
 import com.example.quanlichitieulite.R;
 import com.example.quanlichitieulite.SQLitemanagement.SQLiteManagement;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieEntry;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -37,8 +52,18 @@ public class MainFragment extends Fragment {
     private SharedPreferences sharedPreferences;
     private long sumCollect,sumSpent;
     private Button addIncomeButton,addExpneceButton,buttonPlanMoney;
-    private TextView textMonth,SumCollect,SumSpent,SumNow;
+    private TextView textName,SumCollect,SumSpent,SumNow,textErron;
     private SQLiteManagement sqLiteManagement;
+    private Users users;
+    private ArrayList<BillData> listData;
+    private ArrayList<BudgetData> tableSpent;
+    private ArrayList<BudgetData> tableCollect;
+    private String dateStartInit,dateEndInit;
+    private ListView listView;
+    private ArrayList<BillData> listViewData;
+
+    private SimpleDateFormat simpleDateFormat;
+    private AdapterBill adapterBill;
 
 
     @Override
@@ -53,12 +78,17 @@ public class MainFragment extends Fragment {
 
     private void Init() {
         sharedPreferences = getActivity().getSharedPreferences("loginData",MODE_PRIVATE);
+        simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         sqLiteManagement = new SQLiteManagement(getContext());
-        Users users = sqLiteManagement.getDataUser();
+        users = sqLiteManagement.getDataUser();
         SpentMoney spentMoney = sqLiteManagement.getDataSpentMoney();
         CollectMoney collectMoney = sqLiteManagement.getDataCollectMoney();
-        sumCollect = collectMoney.getSumCollect();
-        sumSpent = spentMoney.getSumSpent();
+        setDateInit();
+        Log.e("DATE",dateStartInit + " " + dateEndInit);
+        tableSpent = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetSpent(changDate(dateStartInit),changDate(dateEndInit));
+        tableCollect = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetCollect(changDate(dateStartInit),changDate(dateEndInit));
+        sumCollect = getSum(tableCollect);
+        sumSpent = getSum(tableSpent);
         sharedPreferences.edit().putLong("SumCollect",collectMoney.getSumCollect()).apply();
         sharedPreferences.edit().putLong("SumSpent",spentMoney.getSumSpent()).apply();
         SumCollect = view.findViewById(R.id.main_sumCollect);
@@ -67,18 +97,62 @@ public class MainFragment extends Fragment {
         addIncomeButton = view.findViewById(R.id.main_addIncomeButton);
         addExpneceButton = view.findViewById(R.id.main_addExpenceButton);
         buttonPlanMoney = view.findViewById(R.id.main_buttonPlanMoney);
+        textName = view.findViewById(R.id.main_name);
+        listData = (ArrayList<BillData>) sqLiteManagement.getListDataSpentAndCollect();
+        textErron = view.findViewById(R.id.main_textViewErron);
+        listView = view.findViewById(R.id.main_viewpager2);
+        listViewData = (ArrayList<BillData>) sqLiteManagement.getListDataSpentAndCollectInDay(changDate(simpleDateFormat.format(Calendar.getInstance().getTime())));
+        setTextViewErron();
+        adapterBill = new AdapterBill(getContext(),listViewData,true);
+        listView.setAdapter(adapterBill);
 
+        listView.setDivider(null);
+    }
+    private void setTextViewErron(){
+        if(listViewData.isEmpty()){
+            textErron.setVisibility(View.VISIBLE);
+            listView.setVisibility(View.GONE);
+        }else{
+            textErron.setVisibility(View.GONE);
+            listView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private long getSum(ArrayList<BudgetData> table){
+        long x = 0;
+        for(int i = 0;i<table.size();++i){
+            x+=table.get(i).getPrice();
+        }
+        return x;
+    }
+    private void setDateInit() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH,1);
+        dateStartInit = simpleDateFormat.format(calendar.getTime());
+        int lastday = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH,lastday);
+        dateEndInit = simpleDateFormat.format(calendar.getTime());
+    }
+    public String changDate(String strDate){
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
+        try {
+            date = format.parse(strDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        return format1.format(date).toString();
     }
 
     private void setData() {
         DecimalFormat df = new DecimalFormat("###,###,###.## VND");
-        LocalDate today = LocalDate.now();
-        textMonth = view.findViewById(R.id.main_month);
-        textMonth.setText("Tháng "+ today.getMonthValue());
         SumCollect.setText(df.format(sumCollect));
         SumSpent.setText(df.format(sumSpent));
         SumNow.setText(df.format(sumCollect - sumSpent));
+        textName.setText(users.getNames());
     }
+
 
     private void clickButton() {
         addIncomeButton.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +176,5 @@ public class MainFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
     }
 }

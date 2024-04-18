@@ -165,6 +165,7 @@ public class BudgetFragment extends Fragment {
                 tableData = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetCollect(changDate(dateStartInit),changDate(dateEndInit));
                 getDataOfCollect();
                 setTextViewErron();
+                SumMoney();
             }
         });
         buttonExpnece.setOnClickListener(new View.OnClickListener() {
@@ -176,9 +177,10 @@ public class BudgetFragment extends Fragment {
                 tableData = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetSpent(changDate(dateStartInit),changDate(dateEndInit));
                 getDataOfSpent();
                 setTextViewErron();
+                SumMoney();
             }
         });
-        SumMoney();
+
 
     }
     private void SumMoney(){

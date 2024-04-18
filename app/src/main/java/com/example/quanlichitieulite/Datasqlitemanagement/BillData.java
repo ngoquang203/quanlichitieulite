@@ -2,6 +2,10 @@ package com.example.quanlichitieulite.Datasqlitemanagement;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BillData implements Comparable<BillData> {
     private int Id;
     private int idDataCategory;
@@ -99,9 +103,19 @@ public class BillData implements Comparable<BillData> {
         Dates = dates;
     }
 
+    public Date changDate(String strDate){
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
+        try {
+            date = format.parse(strDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
 
     @Override
-    public int compareTo(BillData o) {
-        return 0;
+    public int compareTo(BillData other) {
+        return changDate(Dates).compareTo(changDate(other.Dates));
     }
 }

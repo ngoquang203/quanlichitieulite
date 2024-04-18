@@ -25,10 +25,13 @@ public class AdapterBill extends BaseAdapter {
     ArrayList<BillData> arrayList;
     LayoutInflater layoutInflater;
 
-    public AdapterBill(Context context,ArrayList<BillData> arrayList){
+    boolean dateOff;
+
+    public AdapterBill(Context context,ArrayList<BillData> arrayList,boolean dateOff){
         this.context = context;
         this.arrayList = arrayList;
         this.layoutInflater = LayoutInflater.from(context);
+        this.dateOff = dateOff;
     }
     @Override
     public int getCount() {
@@ -67,11 +70,17 @@ public class AdapterBill extends BaseAdapter {
             }
             title.setText(billData.getNameservice());
             time.setText(billData.getTimes());
-            if(position!=0 && billData.getDates().equals(arrayList.get(position - 1).getDates())){
+            if(position!=0 && billData.getDates().equals(arrayList.get(position - 1).getDates()) && dateOff == false){
+                date1.setVisibility(View.GONE);
+            }
+            else if(dateOff == true){
                 date1.setVisibility(View.GONE);
             }
             date1.setText(billData.getDates());
         }
         return convertView;
+    }
+    public void setDateOff(){
+
     }
 }

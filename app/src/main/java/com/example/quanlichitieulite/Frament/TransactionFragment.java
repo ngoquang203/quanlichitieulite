@@ -25,6 +25,7 @@ import com.example.quanlichitieulite.SQLitemanagement.SQLiteManagement;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class TransactionFragment extends Fragment {
@@ -104,11 +105,8 @@ public class TransactionFragment extends Fragment {
         viewPager2.setDivider(null);
         textView = view.findViewById(R.id.transiton_textViewErron);
         listData = (ArrayList<BillData>) sqLiteManagement.getListDataSpentAndCollect();
-
-        for(int i = 0;i<listData.size();++i){
-            Log.e("DATA",String.valueOf(listData.get(i).getDates()));
-        }
-        adapterBill = new AdapterBill(getContext(),listData);
+        Collections.sort(listData, Collections.reverseOrder());
+        adapterBill = new AdapterBill(getContext(),listData,false);
         viewPager2.setAdapter(adapterBill);
     }
 }

@@ -335,6 +335,68 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         return list;
     }
 
+    public List<BillData> getListDataSpentAndCollectInDay(String date){
+        SQLiteDatabase db = this.open();
+        List<BillData> list = new ArrayList<>();
+        String strSpent = "SELECT " + DetailSpent_IDdetailspent + ","
+                + DetailSpent_IDspent + ","
+                + DetailSpent_IDservicespent + ","
+                + DetailSpent_Nameservice + ","
+                + DetailSpent_Price + ","
+                + DetailSpent_Content + ","
+                + "strftime('%d/%m/%Y', Dates)" + ","
+                + DetailSpent_Times + ","
+                + DetailSpent_MoneyNow
+                + " FROM " + SQLiteManagement.DetailSpent + " WHERE " + SQLiteManagement.DetailSpent_Dates + " =="
+                + "julianday('" + date + "')";
+        Cursor cursor = db.rawQuery(strSpent,null);
+        if(cursor.moveToFirst()){
+            do{
+                list.add(new BillData(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getLong(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getLong(8)
+                ));
+            }while (cursor.moveToNext());
+        }
+        String strCollect = "SELECT " + DetailCollect_IDdetailcolect + ","
+                + DetailCollect_IDcollect + ","
+                + DetailCollect_IDservicecollect + ","
+                + DetailCollect_Nameservice + ","
+                + DetailCollect_Price + ","
+                + DetailCollect_Content + ","
+                + "strftime('%d/%m/%Y', Dates)" + ","
+                + DetailCollect_Times + ","
+                + DetailCollect_MoneyNow
+                + " FROM " + SQLiteManagement.DetailCollect + " WHERE " + SQLiteManagement.DetailCollect_Dates + " =="
+                + "julianday('" + date + "')";
+        cursor = db.rawQuery(strCollect,null);
+        if(cursor.moveToFirst()){
+            do{
+                list.add(new BillData(
+                        cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getLong(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getLong(8)
+                ));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
     public List<BillData> getListDataSpentAndCollect(){
         SQLiteDatabase db = this.open();
         List<BillData> list = new ArrayList<>();
