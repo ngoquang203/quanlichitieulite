@@ -19,6 +19,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class AdapterBill extends BaseAdapter {
     Context context;
@@ -80,7 +81,8 @@ public class AdapterBill extends BaseAdapter {
         }
         return convertView;
     }
-    public void setDateOff(){
-
+    public void setFilterList(ArrayList<BillData> filterList){
+        this.arrayList = filterList;
+        notifyDataSetChanged();
     }
 }

@@ -3,16 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frament.TransactionFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/light100">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingHorizontal="@dimen/regular2"
-        android:background="@color/light100">
+        android:background="@color/blue80"
+        android:gravity="center"
+        android:paddingVertical="@dimen/regular2">
         <TextView
             android:layout_weight="1"
             android:layout_width="wrap_content"
@@ -21,7 +24,16 @@
             android:fontFamily="@font/robuto_font"
             android:text="Lịch sử"
             android:textStyle="bold"
+            android:textColor="@color/light100"
             android:gravity="center"/>
+        <SearchView
+            android:id="@+id/transition_searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light100"
+            android:queryHint="Tìm kiếm"
+            android:iconifiedByDefault="false"/>
+
         <!--        <Button-->
         <!--            android:id="@+id/transition_buttonImages"-->
         <!--            android:theme="@style/Base.Theme.ThemeLight"-->

@@ -15,7 +15,9 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quanlichitieulite.AdapterManagement.AdapterBill;
 import com.example.quanlichitieulite.Datasqlitemanagement.BillData;
@@ -36,6 +38,7 @@ public class TransactionFragment extends Fragment {
     private TextView textView;
     private AdapterBill adapterBill;
     private ArrayList<BillData> listData;
+    private SearchView searchView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,8 +46,38 @@ public class TransactionFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_transaction, container, false);
         Init();
         setTextView();
+        setClickSearchView();
         clickItemListView();
         return view;
+    }
+
+    private void setClickSearchView() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+    }
+
+    private void filterList(String newText) {
+        ArrayList<BillData> list = new ArrayList<>();
+        for(BillData billData : listData){
+            if(billData.getNameservice().toLowerCase().contains(newText.toLowerCase())){
+                list.add(billData);
+            }
+        }
+        if(list.isEmpty()){
+            Toast.makeText(getContext(), "Không có dữ liệu", Toast.LENGTH_SHORT).show();
+        }else {
+            adapterBill.setFilterList(list);
+        }
     }
 
     private void clickItemListView() {
@@ -99,6 +132,7 @@ public class TransactionFragment extends Fragment {
         }
     }
 
+
     private void Init() {
         sqLiteManagement = new SQLiteManagement(getContext());
         viewPager2 = view.findViewById(R.id.transiton_viewpager2);
@@ -108,5 +142,8 @@ public class TransactionFragment extends Fragment {
         Collections.sort(listData, Collections.reverseOrder());
         adapterBill = new AdapterBill(getContext(),listData,false);
         viewPager2.setAdapter(adapterBill);
+        searchView = view.findViewById(R.id.transition_searchView);
+        searchView.clearFocus();
+
     }
 }

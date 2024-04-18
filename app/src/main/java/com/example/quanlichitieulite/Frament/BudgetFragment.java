@@ -58,6 +58,7 @@ public class BudgetFragment extends Fragment {
     private ArrayList<BudgetData> tableData;
     private boolean clickButtonDialog;
     private PieChart pieChart;
+    private SimpleDateFormat simpleDateFormat;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,8 +90,8 @@ public class BudgetFragment extends Fragment {
             }
         }
         PieDataSet pieDataSet = new PieDataSet(entries, "Pie Chart");
-        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        pieDataSet.setValueTextSize(20);
+        pieDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        pieDataSet.setValueTextSize(16);
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
@@ -113,10 +114,7 @@ public class BudgetFragment extends Fragment {
         }
         PieDataSet pieDataSet = new PieDataSet(entries, "Pie Chart");
         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        pieDataSet.setValueTextSize(20);
-
-
-
+        pieDataSet.setValueTextSize(16);
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
@@ -194,10 +192,11 @@ public class BudgetFragment extends Fragment {
 
     private void setDateInit() {
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE,-7);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        calendar.set(Calendar.DAY_OF_MONTH,1);
         dateStartInit = simpleDateFormat.format(calendar.getTime());
-        dateEndInit = simpleDateFormat.format(Calendar.getInstance().getTime());
+        int lastday = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH,lastday);
+        dateEndInit = simpleDateFormat.format(calendar.getTime());
         selectedDate.setText(dateStartInit + " - " + dateEndInit);
     }
 
@@ -240,7 +239,6 @@ public class BudgetFragment extends Fragment {
 
     private void clickEditText(TextView dateStart,TextView dateEnd){
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date datetimeStart,datetimeEnd;
         try {
             datetimeStart = simpleDateFormat.parse(dateStartInit);
@@ -309,10 +307,9 @@ public class BudgetFragment extends Fragment {
     }
 
     public String changDate(String strDate){
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date date = null;
         try {
-            date = format.parse(strDate);
+            date = simpleDateFormat.parse(strDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -325,6 +322,7 @@ public class BudgetFragment extends Fragment {
 
 
     private void Init() {
+        simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         sqLiteManagement = new SQLiteManagement(getContext());
         buttonIncome = view.findViewById(R.id.budget_textIncome);
         buttonExpnece = view.findViewById(R.id.budget_textExpence);
@@ -337,5 +335,6 @@ public class BudgetFragment extends Fragment {
         clickButtonDialog = false;
         textErron = view.findViewById(R.id.budget_textViewErron);
         pieChart = view.findViewById(R.id.budget_pieChart);
+        checkButton = true;
     }
 }
