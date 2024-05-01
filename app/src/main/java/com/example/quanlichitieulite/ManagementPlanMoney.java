@@ -16,10 +16,12 @@ import android.widget.TextView;
 
 import com.example.quanlichitieulite.AdapterManagement.AdapterPlanMoney;
 import com.example.quanlichitieulite.Datasqlitemanagement.PlanMonney;
+import com.example.quanlichitieulite.Datasqlitemanagement.ServiceSpent;
 import com.example.quanlichitieulite.SQLitemanagement.SQLiteManagement;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ManagementPlanMoney extends AppCompatActivity {
     private SQLiteManagement sqLiteManagement;
@@ -56,6 +58,7 @@ public class ManagementPlanMoney extends AppCompatActivity {
 //                        arrayList.remove(position);
 //                        adapterPlanMoney.notifyDataSetChanged();
                         sqLiteManagement.deletePlanMoney(arrayList.get(position).getIDplan());
+                        Log.e("IDplan",String.valueOf(arrayList.get(position).getIDplan()));
                         arrayList.remove(position);
                         adapterPlanMoney.notifyDataSetChanged();
                         listViewIsNull();
@@ -86,14 +89,16 @@ public class ManagementPlanMoney extends AppCompatActivity {
         sqLiteManagement = new SQLiteManagement(this);
         imageButton = findViewById(R.id.managementPlanMoney_back);
         listView = findViewById(R.id.managementPlanMoney_listview);
+        List<ServiceSpent> serviceappList = sqLiteManagement.getDataServiceSpent();
         sharedPreferences = getSharedPreferences("loginData",MODE_PRIVATE);
         arrayList = new ArrayList<>();
         textView = findViewById(R.id.managementPlanMoney_textview);
         arrayList = (ArrayList<PlanMonney>) sqLiteManagement.getListDataPlanMoney();
-
-
-            adapterPlanMoney = new AdapterPlanMoney(this,arrayList);
-            listView.setAdapter(adapterPlanMoney);
+        for(int i = 0;i<arrayList.size();++i){
+            Log.e("IDplan",String.valueOf(arrayList.get(i).getIDplan()));
+        }
+        adapterPlanMoney = new AdapterPlanMoney(this,arrayList,serviceappList);
+        listView.setAdapter(adapterPlanMoney);
 
         listViewIsNull();
     }

@@ -4,28 +4,28 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/light60">
+    android:background="@color/dark">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="@dimen/regular2"
-        android:background="@color/light100">
+        android:background="@color/dark">
         <ImageButton
             android:id="@+id/addPlaneMoney_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/arrowleft"
-            android:background="@color/light100"
+            android:background="@color/dark"
             android:contentDescription="@string/listview_erron"/>
         <TextView
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thêm tiếp kiệm"
+            android:text="Thêm kế hoạch"
+            android:textColor="@color/light"
             android:textSize="@dimen/title2"
-            android:fontFamily="@font/robuto_font"
-            android:textStyle="bold"
+            android:fontFamily="@font/opensans_bold"
             android:layout_marginLeft="@dimen/regular2"/>
 
     </LinearLayout>
@@ -43,61 +43,73 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chọn khoản muốn tiếp kiệm"
-                android:textSize="@dimen/title3"
-                android:fontFamily="@font/robuto_font"/>
+                android:text="Chọn khoản muốn thêm kế hoạch"
+                android:textSize="@dimen/regular2"
+                android:fontFamily="@font/opensans"
+                android:textColor="@color/light10"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="5dp">
-                <TextView
-                    android:id="@+id/addPlanMoney_buttonIncome"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Khoản thu"
-                    android:textSize="@dimen/title2"
-                    android:fontFamily="@font/robuto_font"
-                    android:background="@drawable/background_border"
-                    android:backgroundTint="@color/blue80"
-                    android:textColor="@color/dark100"/>
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:text=""/>
-                <TextView
-                    android:id="@+id/addPlanMoney_Expence"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Khoản chi"
-                    android:textSize="@dimen/title2"
-                    android:fontFamily="@font/robuto_font"
-                    android:background="@drawable/background_border"
-                    android:backgroundTint="@color/light20"
-                    android:textColor="@color/dark100"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/addPlanMoney_buttonIncome"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Khoản thu"-->
+<!--                    android:textSize="@dimen/title2"-->
+<!--                    android:fontFamily="@font/robuto_font"-->
+<!--                    android:background="@drawable/background_border"-->
+<!--                    android:backgroundTint="@color/blue80"-->
+<!--                    android:textColor="@color/dark100"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=""/>-->
+<!--                <TextView-->
+<!--                    android:id="@+id/addPlanMoney_Expence"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Khoản chi"-->
+<!--                    android:textSize="@dimen/title2"-->
+<!--                    android:fontFamily="@font/robuto_font"-->
+<!--                    android:background="@drawable/background_border"-->
+<!--                    android:backgroundTint="@color/light20"-->
+<!--                    android:textColor="@color/dark100"/>-->
+                <Spinner
+                    android:id="@+id/addPlaneMoney_spinnerService"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/background_input"
+                    android:backgroundTint="@color/dark10"
+                    android:layout_marginTop="5dp"/>
+
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chọn thời gian khởi tạo"
-                android:fontFamily="@font/robuto_font"
+                android:fontFamily="@font/opensans"
                 android:textSize="@dimen/regular2"
+                android:textColor="@color/light10"
                 android:layout_marginTop="10dp"/>
             <Spinner
                 android:id="@+id/addPlaneMoney_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:background="@drawable/background_input"
+                android:backgroundTint="@color/dark10"
                 android:layout_marginTop="5dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nhập số tiền tiếp kiệm"
-                android:fontFamily="@font/robuto_font"
+                android:text="Nhập số tiền kế hoạch"
+                android:fontFamily="@font/opensans"
+                android:textColor="@color/light10"
                 android:textSize="@dimen/regular2"
                 android:layout_marginTop="10dp"/>
             <com.google.android.material.textfield.TextInputLayout
@@ -113,11 +125,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input"
+                    android:backgroundTint="@color/dark10"
                     android:ems="10"
                     android:hint="0"
+                    android:textColor="@color/light"
                     android:maxLength="10"
                     android:inputType="number"
-                    android:textColorHint="@color/dark50"
+                    android:textColorHint="@color/light10"
                     android:textSize="@dimen/title3" />
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
@@ -125,15 +139,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0 VND"
-                android:textColor="@color/dark50"
+                android:textColor="@color/light10"
                 android:paddingLeft="@dimen/regular2"
-                android:fontFamily="@font/robuto_font"/>
+                android:fontFamily="@font/opensans"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/regular2"
-                android:text="Ghi chú cho khoản tiếp kiệm"
-                android:fontFamily="@font/robuto_font"
+                android:text="Ghi chú cho khoản kế hoạch"
+                android:fontFamily="@font/opensans"
+                android:textColor="@color/light10"
                 android:textSize="@dimen/regular2"/>
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -148,10 +163,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input"
+                    android:backgroundTint="@color/dark10"
                     android:ems="10"
                     android:hint="Nội dung"
+                    android:textColor="@color/light"
                     android:inputType="text"
-                    android:textColorHint="@color/dark50"
+                    android:textColorHint="@color/light10"
                     android:textSize="@dimen/title3" />
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
@@ -163,8 +180,8 @@
                 android:textSize="@dimen/title2"
                 android:background="@drawable/background_border"
                 android:backgroundTint="@color/blue80"
-                android:textColor="@color/light100"
-                android:fontFamily="@font/robuto_font"/>
+                android:textColor="@color/light"
+                android:fontFamily="@font/opensans_bold"/>
         </LinearLayout>
     </ScrollView>
 

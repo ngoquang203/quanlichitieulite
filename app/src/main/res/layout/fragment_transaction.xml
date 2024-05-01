@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frament.TransactionFragment"
     android:orientation="vertical"
-    android:background="@color/light100">
+    android:background="@color/dark10">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,28 +20,19 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/title1"
-            android:fontFamily="@font/robuto_font"
+            android:textSize="@dimen/title2"
+            android:fontFamily="@font/opensans_bold"
             android:text="Lịch sử"
-            android:textStyle="bold"
             android:textColor="@color/light100"
             android:gravity="center"/>
-        <SearchView
+        <android.widget.SearchView
             android:id="@+id/transition_searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light100"
+            android:background="@color/light20"
             android:queryHint="Tìm kiếm"
             android:iconifiedByDefault="false"/>
 
-        <!--        <Button-->
-        <!--            android:id="@+id/transition_buttonImages"-->
-        <!--            android:theme="@style/Base.Theme.ThemeLight"-->
-        <!--            android:paddingHorizontal="10dp"-->
-        <!--            android:layout_width="48dp"-->
-        <!--            android:layout_height="48dp"-->
-        <!--            android:drawableEnd="@drawable/sort"-->
-        <!--            android:contentDescription="@string/app_avatar" />-->
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,6 +43,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
+            android:textColor="@color/light"
             android:layout_height="wrap_content"
             android:text="Không có dữ liệu"
             android:visibility="gone"/>
@@ -59,8 +51,9 @@
             android:id="@+id/transiton_viewpager2"
             android:layout_width="match_parent"
             android:contentDescription="@string/listview_erron"
+            android:backgroundTint="@color/dark"
             android:layout_height="match_parent"
-            android:background="@color/light60"
+            android:background="@color/dark"
             />
     </LinearLayout>
 

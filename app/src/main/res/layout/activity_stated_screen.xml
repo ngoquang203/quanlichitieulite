@@ -6,58 +6,102 @@
     android:layout_height="match_parent"
     tools:context=".StatedScreen"
     android:orientation="vertical"
-    android:background="@color/light100"
+    android:background="@color/dark"
     android:padding="@dimen/regular2">
-    <ImageView
-        android:layout_marginTop="@dimen/title1"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/stated" />
-    <TextView
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Xin chào"
-        android:textSize="@dimen/title1"
-        android:textStyle="bold"
-        android:textColor="@color/dark100"
-        android:fontFamily="@font/robuto_font"/>
-    <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hãy nhập tên của bạn để bắt đầu phần mềm"
-        android:textSize="@dimen/regular1"
-        android:textColor="@color/dark50"
-        android:fontFamily="@font/robuto_font"/>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:hintEnabled="false"
-        android:layout_marginTop="@dimen/regular2">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/stated_name"
+        android:layout_gravity="bottom"
+        android:fillViewport="true">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_input"
-            android:ems="10"
-            android:hint="Nhập tên của bạn"
-            android:inputType="text"
-            android:textSize="@dimen/title3"
-            android:layout_marginTop="10dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="@dimen/title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/stated" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xin chào"
+                android:textSize="@dimen/title2"
+                android:textColor="@color/light"
+                android:fontFamily="@font/opensans_bold"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hãy nhập tên của bạn để bắt đầu phần mềm"
+                android:textSize="@dimen/regular2"
+                android:textColor="@color/light10"
+                android:fontFamily="@font/opensans"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                android:layout_marginTop="@dimen/regular2">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/stated_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input"
+                    android:backgroundTint="@color/dark10"
+                    android:ems="10"
+                    android:hint="Nhập tên của bạn"
+                    android:textColorHint="@color/light10"
+                    android:textColor="@color/light"
+                    android:fontFamily="@font/opensans"
+                    android:inputType="text"
+                    android:textSize="@dimen/title3"
+                    android:layout_marginTop="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/stated_supMoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/regular2"
+                android:layout_marginTop="@dimen/regular2"
+                android:text="0 VND"
+                android:textSize="@dimen/regular2"
+                android:fontFamily="@font/opensans"
+                android:textColor="@color/light"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/stated_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_input"
+                    android:backgroundTint="@color/dark10"
+                    android:ems="10"
+                    android:hint="Nhập tên số tiền hiện có"
+                    android:textColorHint="@color/light10"
+                    android:textColor="@color/light"
+                    android:fontFamily="@font/opensans"
+                    android:inputType="numberDecimal"
+                    android:textSize="@dimen/title3"
+                    android:layout_marginTop="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/stated_confirm"
-        android:layout_marginTop="@dimen/title2"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Xác nhận"
-        android:textSize="@dimen/title2"
-        android:textColor="@color/light100"
-        android:fontFamily="@font/robuto_font"
-        android:background="@drawable/background_border"
-        android:backgroundTint="@color/blue80" />
+            <TextView
+                android:id="@+id/stated_confirm"
+                android:layout_marginTop="@dimen/title2"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xác nhận"
+                android:textSize="@dimen/regular1"
+                android:textColor="@color/light"
+                android:fontFamily="@font/opensans_bold"
+                android:background="@drawable/background_border"
+                android:backgroundTint="@color/blue80" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

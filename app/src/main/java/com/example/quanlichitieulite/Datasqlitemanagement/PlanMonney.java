@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class PlanMonney {
-    private int ID,IDuser,IDplan;
+    private int IDuser,IDplan,NamePlanMoney;
+    private String IDservice;
     private long Summoney;
     private String DateStart;
     private String DateEnd;
@@ -18,10 +19,11 @@ public class PlanMonney {
     private long MoneyNow;
 
     public PlanMonney(){};
-    public PlanMonney(int id,int IDuser, int IDplan, long summoney, String dateStart,String dateEnd, String contents,long moneyNow) {
-        ID = id;
+    public PlanMonney(int IDuser,int IDplan, int NamePlanMoney,String IDservice, long summoney, String dateStart,String dateEnd, String contents,long moneyNow) {
         this.IDuser = IDuser;
         this.IDplan = IDplan;
+        this.NamePlanMoney = NamePlanMoney;
+        this.IDservice = IDservice;
         Summoney = summoney;
         DateStart = dateStart;
         DateEnd = dateEnd;
@@ -134,11 +136,19 @@ public class PlanMonney {
         MoneyNow = moneyNow;
     }
 
-    public int getID() {
-        return ID;
+    public int getNamePlanMoney() {
+        return NamePlanMoney;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setNamePlanMoney(int namePlanMoney) {
+        NamePlanMoney = namePlanMoney;
+    }
+
+    public String getIDservice() {
+        return IDservice;
+    }
+
+    public void setIDservice(String IDservice) {
+        this.IDservice = IDservice;
     }
 }

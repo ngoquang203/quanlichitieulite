@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Frament.Onboarding1Fragment"
-    android:background="@color/light100"
+    android:background="@color/dark"
     android:orientation="vertical">
 
 
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/light100"
+        android:background="@color/dark"
         android:padding="@dimen/title2">
         <ImageView
             android:layout_marginTop="@dimen/title2"
@@ -26,18 +26,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Giành quyền kiểm soát hoàn toàn tiền của bạn"
-            android:textSize="@dimen/title1"
-            android:textStyle="bold"
-            android:fontFamily="@font/robuto_font"
-            android:textColor="@color/dark100"/>
+            android:textSize="@dimen/title2"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/light"/>
         <TextView
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Trở thành người quản lý tiền của riêng bạn"
             android:textSize="@dimen/regular2"
-            android:textColor="@color/dark50"
-            android:fontFamily="@font/robuto_font"/>
+            android:textColor="@color/light10"
+            android:fontFamily="@font/opensans_itatic"/>
     </LinearLayout>
 
 </FrameLayout>

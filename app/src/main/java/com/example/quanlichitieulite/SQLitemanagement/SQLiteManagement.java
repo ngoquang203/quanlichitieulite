@@ -48,6 +48,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
     public static String PlanMoney_IDplan = "IDplan";
     public static String PlanMoney_IDuser = "IDuser";
     public static String PlanMoney_NamePlanMoney = "NamePlanMoney";
+    public static String PlanMoney_IDservice = "IDservice";
     public static String PlanMoney_SumMoney = "SumMoney";
     public static String PlanMoney_DateStart = "DateStart";
     public static String PlanMoney_DateEnd = "DateEnd";
@@ -112,6 +113,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 PlanMoney_IDuser + " INTEGER," +
                 PlanMoney_IDplan +  " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 PlanMoney_NamePlanMoney + " INTEGER," +
+                PlanMoney_IDservice + " TEXT," +
                 PlanMoney_SumMoney + " BIGINT," +
                 PlanMoney_DateStart + " REAL," +
                 PlanMoney_DateEnd + " REAL," +
@@ -141,7 +143,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         String tbDetailSpent = "CREATE TABLE " + DetailSpent + "(" +
                 DetailSpent_IDdetailspent + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 DetailSpent_IDspent + " INTEGER," +
-                DetailSpent_IDservicespent + " INTEGER," +
+                DetailSpent_IDservicespent + " TEXT," +
                 DetailSpent_Nameservice + " TEXT," +
                 DetailSpent_Price + " BIGINT," +
                 DetailSpent_Content + " TEXT," +
@@ -179,17 +181,41 @@ public class SQLiteManagement extends SQLiteOpenHelper {
 
     public void deletePlanMoney(int id){
         SQLiteDatabase db = this.open();
-        String str = "DELETE FROM " + PlanMoney + " WHERE IDplan = " + id;
+//        String str = "DELETE FROM " + PlanMoney + " WHERE " + PlanMoney_IDplan + " == "+ id;
+        db.delete(PlanMoney,"IDplan = " + id,null);
+        db.close();
+    }
+
+    public void InsertPlanMoney(int id,String idservice,long money,String dateStart,String dateEnd,String content){
+        SQLiteDatabase db = this.open();
+        String str = "INSERT INTO " + PlanMoney + "(" + PlanMoney_NamePlanMoney + "," + PlanMoney_IDservice + "," + PlanMoney_SumMoney + ","
+                + PlanMoney_DateStart + "," + PlanMoney_DateEnd + ","
+                + PlanMoney_Content + "," + PlanMoney_MoneyNow + ")" + "VALUES(" + id + ",'" + idservice + "'," +
+                money + ",julianday('" + dateStart + "'),julianday('" + dateEnd + "'),'" + content + "',0)";
+        Log.e("DATA",str);
         db.execSQL(str);
         db.close();
     }
 
-    public void InsertPlanMoney(int id,long money,String dateStart,String dateEnd,String content){
+    public void createTriggerSumCollect(){
         SQLiteDatabase db = this.open();
-        String str = "INSERT INTO " + PlanMoney + "(" + PlanMoney_NamePlanMoney + "," + PlanMoney_SumMoney + ","
-                + PlanMoney_DateStart + "," + PlanMoney_DateEnd + ","
-                + PlanMoney_Content + "," + PlanMoney_MoneyNow + ")" + "VALUES( " + id + "," +
-                money + ",julianday('" + dateStart + "'),julianday('" + dateEnd + "'),'" + content + "',0)";
+        String str = "CREATE TRIGGER UpdateSumCollect\n" +
+                "AFTER INSERT ON DetailCollect\n" +
+                "BEGIN\n" +
+                "    UPDATE CollectMoney\n" +
+                "    SET SumCollect = SumCollect + NEW.Price;\n" +
+                "END;";
+        db.execSQL(str);
+        db.close();
+    }
+    public void createTriggerSumSpent(){
+        SQLiteDatabase db = this.open();
+        String str = "CREATE TRIGGER UpdateSumSpent\n" +
+                "AFTER INSERT ON DetailSpent\n" +
+                "BEGIN\n" +
+                "    UPDATE SpentMoney\n" +
+                "    SET SumSpent = SumSpent + NEW.Price;\n" +
+                "END;";
         db.execSQL(str);
         db.close();
     }
@@ -201,6 +227,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 "    UPDATE PlanMoney\n" +
                 "    SET MoneyNow = MoneyNow + NEW.Price\n" +
                 "    WHERE NamePlanMoney = NEW.IDspent\n" +
+                "        AND IDservice == NEW.IDservicespent\n" +
                 "        AND DateStart <= NEW.Dates\n" +
                 "        AND DateEnd >= NEW.Dates;\n" +
                 "END;";
@@ -225,7 +252,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
     public List<PlanMonney> getListDataPlanMoney(){
         SQLiteDatabase db = this.open();
         List<PlanMonney> list = new ArrayList<>();
-        String str = "select " + PlanMoney_IDuser + "," + PlanMoney_IDplan + "," + PlanMoney_NamePlanMoney + "," +
+        String str = "select " + PlanMoney_IDuser  + "," + PlanMoney_IDplan + "," + PlanMoney_NamePlanMoney + "," + PlanMoney_IDservice + "," +
                 PlanMoney_SumMoney + ", strftime('%d/%m/%Y', " + PlanMoney_DateStart + "), " +
                 "strftime('%d/%m/%Y', " + PlanMoney_DateEnd + ")," + PlanMoney_Content + "," + PlanMoney_MoneyNow + " FROM " + PlanMoney;
         Log.e("DATA",str);
@@ -236,11 +263,12 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                         cursor.getInt(0),
                         cursor.getInt(1),
                         cursor.getInt(2),
-                        cursor.getLong(3),
-                        cursor.getString(4),
+                        cursor.getString(3),
+                        cursor.getLong(4),
                         cursor.getString(5),
                         cursor.getString(6),
-                        cursor.getLong(7)
+                        cursor.getString(7),
+                        cursor.getLong(8)
                 ));
             }while (cursor.moveToNext());
         }
@@ -482,6 +510,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 + DetailSpent_Content + "," + DetailSpent_Dates + ","
                 + DetailSpent_Times + "," + DetailSpent_MoneyNow + ")" + "VALUES(2,'" + IDservicespent + "','" +
                 Nameservice + "'," + Price + ",'" + Content + "'," + Date + ",'" + Time + "'," + MoneyNow + ")";
+        Log.e("DATA",str);
         db.execSQL(str);
         db.close();
     }
@@ -623,7 +652,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         return serviceCollects;
     }
 
-    public void InsertNameUser(String Name){
+    public void InsertStarted(String Name){
         SQLiteDatabase db = this.open();
         ContentValues contentValues = new ContentValues();
         contentValues.put(SQLiteManagement.User_Names,Name);

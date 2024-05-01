@@ -33,7 +33,8 @@ import java.sql.SQLException;
 
 public class ProfileFragment extends Fragment {
     private View view;
-    private TextView loginOut,userName,changeInfo,nameInfo,sexInfo,phoneNumberInfo,emailInfo;
+    private TextView userName,changeInfo,nameInfo,sexInfo,emailInfo;
+//    private TextView phoneNumberInfo;
     private String phone,sex;
     private Users users;
     private SQLiteManagement sqLiteManagement;
@@ -128,39 +129,16 @@ public class ProfileFragment extends Fragment {
         });
 
     }
-
-    private void clickLoginOutButton() {
-        loginOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Bạn có muốn đăng xuất không?");
-                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-//                        sharedPreferences.edit().putBoolean("login",false).apply();
-//                        Intent intent = new Intent(getActivity(), Login.class);
-//                        startActivity(intent);
-                    }
-                });
-                builder.setNegativeButton("Không", null);
-
-                // Hiển thị AlertDialog
-                AlertDialog alert = builder.create();
-                alert.show();
-
-            }
-        });
-    }
+    
 
     private void Init() {
         sharedPreferences = getActivity().getSharedPreferences("loginData",MODE_PRIVATE);
         sqLiteManagement = new SQLiteManagement(getContext());
-        loginOut = view.findViewById(R.id.profile_loginOut);
         userName = view.findViewById(R.id.profile_userName);
         changeInfo = view.findViewById(R.id.profile_changeInformation);
         nameInfo = view.findViewById(R.id.profile_nameInfo);
         sexInfo = view.findViewById(R.id.profile_sexInfo);
-        phoneNumberInfo = view.findViewById(R.id.profile_phoneNumberInfo);
+//        phoneNumberInfo = view.findViewById(R.id.profile_phoneNumberInfo);
         emailInfo = view.findViewById(R.id.profile_emailInfo);
         getDataInforMation();
     }
@@ -170,8 +148,8 @@ public class ProfileFragment extends Fragment {
         nameInfo.setText(users.getNames());
         if(users.getSex() != null) sexInfo.setText(users.getSex());
         else sexInfo.setText("_ _");
-        if(users.getNumberPhone() != null) phoneNumberInfo.setText(users.getNumberPhone());
-        else phoneNumberInfo.setText("_ _");
+//        if(users.getNumberPhone() != null) phoneNumberInfo.setText(users.getNumberPhone());
+//        else phoneNumberInfo.setText("_ _");
         if(users.getEmail() != null) emailInfo.setText(users.getEmail());
         else emailInfo.setText("_ _");
     }

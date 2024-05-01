@@ -22,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.quanlichitieulite.AdapterManagement.CategoryAdapterExpence;
 import com.example.quanlichitieulite.Datasqlitemanagement.ServiceSpent;
@@ -72,7 +73,6 @@ public class Expence extends AppCompatActivity {
         serviceappList = sqLiteManagement.getDataServiceSpent();
         categoryAdapterExpence = new CategoryAdapterExpence(this,R.layout.item_selected,serviceappList);
         spinner.setAdapter(categoryAdapterExpence);
-
         dateTextInputEditText = findViewById(R.id.expence_date);
         timeTextInputEditText = findViewById(R.id.expence_time);
 
@@ -83,9 +83,11 @@ public class Expence extends AppCompatActivity {
         expence_button = findViewById(R.id.expence_button);
         supMoney = findViewById(R.id.expence_supMoney);
 
-        SumCollect = sharedPreferences.getLong("SumCollect",0);
-        SumSpent = sharedPreferences.getLong("SumSpent",0);
+        SumCollect = sqLiteManagement.getDataCollectMoney().getSumCollect();
+        SumSpent = sqLiteManagement.getDataSpentMoney().getSumSpent();
         SumNow = SumCollect - SumSpent;
+
+        Log.e("DATA",String.valueOf(SumCollect) + " " + String.valueOf(SumSpent));
     }
     private void updateSupMoney() {
         expence_money.addTextChangedListener(new TextWatcher() {
@@ -189,22 +191,36 @@ public class Expence extends AppCompatActivity {
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }
-
-                if(SumNow - Float.valueOf(Money) < 0){
+                Log.e("DATA",Money + " " + IDservice + Description + Nameservice);
+                String formattedString = sdf2.format(date);
+                if(!Money.isEmpty() && (SumNow - Long.valueOf(Money) < 0)){
                     AlertDialog.Builder builder = new AlertDialog.Builder(Expence.this);
                     builder.setMessage("Số tiền chi của bạn vượt số tiền hiện có");
                     builder.setNegativeButton("Ok", null);
                     AlertDialog alert = builder.create();
                     alert.show();
-                }else{
-                    // Định dạng Date sang chuỗi mới
-                    String formattedString = sdf2.format(date);
-                    if(Money.length() != 0 && Description.length() != 0 ){
-                        sqLiteManagement.InsertDetailSpent(IDservice,Nameservice,Long.valueOf(Money),Description,"julianday('"+formattedString + "')",times,SumNow);
-                        sqLiteManagement.updateSumSpent();
-                        Log.e("TEST","julianday('"+formattedString + "')");
-                        Intent intent = new Intent(Expence.this,Home.class);
-                        startActivity(intent);
+                }
+                else{
+                    if(!Money.isEmpty() && !Description.isEmpty()){
+                        if(Long.valueOf(Money) > 0){
+                            sqLiteManagement.InsertDetailSpent(IDservice,Nameservice,Long.valueOf(Money),Description,"julianday('"+formattedString + "')",times,SumNow);
+                            sqLiteManagement.updateSumSpent();
+                            Intent intent = new Intent(Expence.this,Home.class);
+                            startActivity(intent);
+                        }else{
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Expence.this);
+                            builder.setMessage("Số tiền bạn nhập không lớn hơn 0");
+                            builder.setNegativeButton("Ok", null);
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        }
+                    }
+                    else{
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Expence.this);
+                        builder.setMessage("Bạn chưa nhập đầy đủ thông tin");
+                        builder.setNegativeButton("Ok", null);
+                        AlertDialog alert = builder.create();
+                        alert.show();
                     }
                 }
             }

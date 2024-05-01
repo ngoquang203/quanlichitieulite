@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/light100">
+    android:background="@color/dark">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,9 +25,8 @@
             android:layout_weight="1"
             android:text="Thay đổi thông tin cá nhân"
             android:textSize="@dimen/title2"
-            android:textColor="@color/dark100"
-            android:textStyle="bold"
-            android:fontFamily="@font/robuto_font"
+            android:textColor="@color/light"
+            android:fontFamily="@font/opensans_bold"
             android:paddingLeft="@dimen/regular2"/>
     </LinearLayout>
     <LinearLayout
@@ -45,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/regular2"
                 android:text="Tên tài khoản"
-                android:fontFamily="@font/robuto_font"
+                android:textColor="@color/light10"
+                android:fontFamily="@font/opensans"
                 android:textSize="@dimen/regular2"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -56,8 +56,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input"
+                    android:backgroundTint="@color/dark10"
                     android:ems="10"
                     android:hint="Nhập tên"
+                    android:textColorHint="@color/light10"
+                    android:textColor="@color/light"
                     android:inputType="text"
                     android:textSize="@dimen/title3"
                     android:layout_marginTop="10dp"/>
@@ -75,7 +78,8 @@
                 android:layout_weight="1"
                 android:paddingLeft="@dimen/regular2"
                 android:text="Giới tính"
-                android:fontFamily="@font/robuto_font"
+                android:textColor="@color/light10"
+                android:fontFamily="@font/opensans"
                 android:textSize="@dimen/regular2"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -87,6 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nam"
+                    android:textColor="@color/light"
                     android:textSize="@dimen/regular2"
                     android:fontFamily="@font/robuto_font"/>
                 <CheckBox
@@ -94,6 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nữ"
+                    android:textColor="@color/light"
                     android:textSize="@dimen/regular2"
                     android:fontFamily="@font/robuto_font"/>
             </LinearLayout>
@@ -112,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/regular2"
                 android:text="Email"
+                android:textColor="@color/light"
                 android:fontFamily="@font/robuto_font"
                 android:textSize="@dimen/regular2"/>
             <com.google.android.material.textfield.TextInputLayout
@@ -124,6 +131,9 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input"
                     android:ems="10"
+                    android:backgroundTint="@color/dark10"
+                    android:textColorHint="@color/light10"
+                    android:textColor="@color/light"
                     android:hint="Nhập email"
                     android:inputType="text"
                     android:textSize="@dimen/title3"

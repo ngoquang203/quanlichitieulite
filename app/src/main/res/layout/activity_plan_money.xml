@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@color/light60">
+    android:background="@color/dark">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,17 +18,17 @@
             android:layout_height="48dp"
             android:src="@drawable/arrowleft"
             android:contentDescription="@string/listview_erron"
-            android:background="@color/light60"/>
+            android:background="@color/dark"/>
         <TextView
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="@dimen/regular2"
-            android:text="Tiếp kiệm"
+            android:text="Kế hoạch"
             android:textSize="@dimen/title2"
-            android:fontFamily="@font/robuto_font"
-            android:textStyle="bold" />
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/light" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/background_border">
+            android:background="@drawable/background_border"
+            android:backgroundTint="@color/dark10">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,19 +51,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thêm tiếp kiệm"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/title3"
-                    android:fontFamily="@font/robuto_font"/>
+                    android:text="Thêm kế hoạch"
+                    android:textSize="@dimen/regular1"
+                    android:fontFamily="@font/opensans_bold"
+                    android:textColor="@color/light"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Thêm khoản tiếp kiệm mới"
-                    android:textStyle="bold"
-                    android:textColor="@color/dark20"
-                    android:textSize="@dimen/regular1"
-                    android:fontFamily="@font/robuto_font"/>
+                    android:text="Thêm kế hoạch mới"
+                    android:textColor="@color/light10"
+                    android:textSize="@dimen/regular2"
+                    android:fontFamily="@font/opensans"/>
             </LinearLayout>
             <ImageView
                 android:layout_gravity="center"
@@ -77,7 +77,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="@dimen/title2"
-            android:background="@drawable/background_border">
+            android:background="@drawable/background_border"
+            android:backgroundTint="@color/dark10">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,18 +92,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Quản lí"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/title3"
-                        android:fontFamily="@font/robuto_font"/>
+                        android:textSize="@dimen/regular1"
+                        android:fontFamily="@font/opensans_bold"
+                        android:textColor="@color/light"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Quản lí tiếp kiệm đã thêm"
-                        android:textStyle="bold"
-                        android:textColor="@color/dark20"
-                        android:textSize="@dimen/regular1"
-                        android:fontFamily="@font/robuto_font"/>
+                        android:text="Quản lí kế hoạch đã thêm"
+                        android:textColor="@color/light10"
+                        android:textSize="@dimen/regular2"
+                        android:fontFamily="@font/opensans"/>
                 </LinearLayout>
                 <ImageView
                     android:layout_gravity="center"
@@ -111,10 +111,6 @@
                     android:src="@drawable/salary"
                     android:contentDescription="@string/listview_erron"/>
             </LinearLayout>
-
-
         </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>

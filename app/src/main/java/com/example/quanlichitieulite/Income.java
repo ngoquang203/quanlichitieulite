@@ -2,6 +2,7 @@ package com.example.quanlichitieulite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -192,11 +193,25 @@ public class Income extends AppCompatActivity {
                 }
                 // Định dạng Date sang chuỗi mới
                 String formattedString = sdf2.format(date);
-                if(Money.length() != 0 && Description.length() != 0){
-                    sqLiteManagement.InsertDetailCollect(IDservice,Nameservice,Long.valueOf(Money),Description,"julianday('"+formattedString + "')",times,SumNow);
-                    sqLiteManagement.updateSumCollect();
-                    Intent intent = new Intent(Income.this,Home.class);
-                    startActivity(intent);
+                if(!Money.isEmpty() && !Description.isEmpty()){
+                    if(Long.valueOf(Money) > 0){
+                        sqLiteManagement.InsertDetailCollect(IDservice,Nameservice,Long.valueOf(Money),Description,"julianday('"+formattedString + "')",times,SumNow);
+                        sqLiteManagement.updateSumCollect();
+                        Intent intent = new Intent(Income.this,Home.class);
+                        startActivity(intent);
+                    }else{
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Income.this);
+                        builder.setMessage("Số tiền bạn nhập không lớn hơn 0");
+                        builder.setNegativeButton("Ok", null);
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Income.this);
+                    builder.setMessage("Bạn chưa nhập đầy đủ thông tin");
+                    builder.setNegativeButton("Ok", null);
+                    AlertDialog alert = builder.create();
+                    alert.show();
                 }
             }
         });

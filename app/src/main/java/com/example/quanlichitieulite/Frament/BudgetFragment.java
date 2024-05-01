@@ -9,24 +9,37 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.quanlichitieulite.AdapterManagement.AdapterBudget;
 import com.example.quanlichitieulite.Datasqlitemanagement.BudgetData;
 import com.example.quanlichitieulite.R;
 import com.example.quanlichitieulite.SQLitemanagement.SQLiteManagement;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.ChartTouchListener;
+import com.github.mikephil.charting.listener.OnChartGestureListener;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.sql.SQLException;
@@ -59,6 +72,9 @@ public class BudgetFragment extends Fragment {
     private boolean clickButtonDialog;
     private PieChart pieChart;
     private SimpleDateFormat simpleDateFormat;
+    private ListView listView;
+    private AdapterBudget adapterBudget;
+    private LinearLayout layout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,10 +105,16 @@ public class BudgetFragment extends Fragment {
                 entries.add(new PieEntry(dataCollect[i],NameCollect[i]));
             }
         }
+        adapterBudget = new AdapterBudget(getContext(), (ArrayList<PieEntry>) entries);
+        listView.setAdapter(adapterBudget);
         PieDataSet pieDataSet = new PieDataSet(entries, "Pie Chart");
         pieDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
-        pieDataSet.setValueTextSize(16);
+        pieDataSet.setDrawValues(false);
+
         PieData pieData = new PieData(pieDataSet);
+        pieChart.getLegend().setTextColor(getResources().getColor(R.color.light));
+        pieChart.setDrawEntryLabels(false);
+        pieChart.setEntryLabelColor(Color.WHITE);
         pieChart.setData(pieData);
         pieChart.invalidate();
 
@@ -112,10 +134,17 @@ public class BudgetFragment extends Fragment {
                 entries.add(new PieEntry(dataSpent[i],NameSpent[i]));
             }
         }
+        adapterBudget = new AdapterBudget(getContext(), (ArrayList<PieEntry>) entries);
+        listView.setAdapter(adapterBudget);
         PieDataSet pieDataSet = new PieDataSet(entries, "Pie Chart");
         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         pieDataSet.setValueTextSize(16);
+        pieDataSet.setValueLineColor(getResources().getColor(R.color.light));
+        pieDataSet.setSelectionShift(5f);
+        pieDataSet.setSliceSpace(5f);
         PieData pieData = new PieData(pieDataSet);
+        pieChart.getLegend().setTextColor(getResources().getColor(R.color.light));
+        pieChart.setDrawEntryLabels(false);
         pieChart.setData(pieData);
         pieChart.invalidate();
 
@@ -125,10 +154,10 @@ public class BudgetFragment extends Fragment {
     private void setTextViewErron(){
         if(tableData.isEmpty()){
             textErron.setVisibility(View.VISIBLE);
-            pieChart.setVisibility(View.GONE);
+            layout.setVisibility(View.GONE);
         }else{
             textErron.setVisibility(View.GONE);
-            pieChart.setVisibility(View.VISIBLE);
+            layout.setVisibility(View.VISIBLE);
         }
     }
 
@@ -159,7 +188,7 @@ public class BudgetFragment extends Fragment {
             public void onClick(View v) {
                 checkButton = true;
                 buttonIncome.setBackgroundColor(getResources().getColor(R.color.blue80));
-                buttonExpnece.setBackgroundColor(Color.WHITE);
+                buttonExpnece.setBackgroundColor(getResources().getColor(R.color.dark));
                 tableData = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetCollect(changDate(dateStartInit),changDate(dateEndInit));
                 getDataOfCollect();
                 setTextViewErron();
@@ -170,8 +199,8 @@ public class BudgetFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 checkButton = false;
+                buttonIncome.setBackgroundColor(getResources().getColor(R.color.dark));
                 buttonExpnece.setBackgroundColor(getResources().getColor(R.color.blue80));
-                buttonIncome.setBackgroundColor(Color.WHITE);
                 tableData = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetSpent(changDate(dateStartInit),changDate(dateEndInit));
                 getDataOfSpent();
                 setTextViewErron();
@@ -328,6 +357,7 @@ public class BudgetFragment extends Fragment {
         buttonExpnece = view.findViewById(R.id.budget_textExpence);
         selectedDate = view.findViewById(R.id.budget_textSelectedDate);
         sumMoneyText = view.findViewById(R.id.budget_sumMoneyText);
+        layout = view.findViewById(R.id.budget_linerlayout);
         setDateInit();
         Log.e("DATA",dateStartInit + " " + dateEndInit);
         tableData = new ArrayList<>();
@@ -335,6 +365,8 @@ public class BudgetFragment extends Fragment {
         clickButtonDialog = false;
         textErron = view.findViewById(R.id.budget_textViewErron);
         pieChart = view.findViewById(R.id.budget_pieChart);
+        listView = view.findViewById(R.id.budget_listview);
+        buttonIncome.setBackgroundColor(getResources().getColor(R.color.blue80));
         checkButton = true;
     }
 }

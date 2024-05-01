@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ManagementPlanMoney"
-    android:background="@color/light60"
+    android:background="@color/dark"
     android:orientation="vertical"
     >
     <LinearLayout
@@ -13,22 +13,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="@dimen/regular2"
-        android:background="@color/light100">
+        android:background="@color/dark">
         <ImageButton
             android:id="@+id/managementPlanMoney_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/arrowleft"
-            android:background="@color/light100"
+            android:background="@color/dark"
             android:contentDescription="@string/listview_erron"/>
         <TextView
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quản lí tiếp kiệm"
+            android:text="Quản lí"
             android:textSize="@dimen/title2"
-            android:fontFamily="@font/robuto_font"
-            android:textStyle="bold"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/light"
             android:layout_marginLeft="@dimen/regular2"/>
 
     </LinearLayout>
@@ -39,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Không có dữ liệu"
+        android:textColor="@color/light10"
         android:visibility="gone"/>
     <ListView
         android:id="@+id/managementPlanMoney_listview"

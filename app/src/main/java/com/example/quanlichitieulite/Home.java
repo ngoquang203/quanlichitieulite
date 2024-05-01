@@ -2,25 +2,29 @@ package com.example.quanlichitieulite;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.quanlichitieulite.AdapterManagement.AdapterHome;
-import com.example.quanlichitieulite.Datasqlitemanagement.CollectMoney;
-import com.example.quanlichitieulite.Datasqlitemanagement.SpentMoney;
-import com.example.quanlichitieulite.Datasqlitemanagement.Users;
-import com.example.quanlichitieulite.SQLitemanagement.SQLiteManagement;
+
+import com.example.quanlichitieulite.Datasqlitemanagement.ChanelID;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class Home extends AppCompatActivity {
     private ViewPager2 viewPager;
     private BottomNavigationView bottomNavigationView;
-    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +85,13 @@ public class Home extends AppCompatActivity {
 
     private void Init() {
         viewPager = findViewById(R.id.view_page);
+        viewPager.setUserInputEnabled(false);
         bottomNavigationView = findViewById(R.id.bottom_navigator);
-        sharedPreferences = getSharedPreferences("loginData", MODE_PRIVATE);
+//        pushNotification();
 
+    }
+
+    private int getNotificationID(){
+        return (int) new Date().getTime();
     }
 }

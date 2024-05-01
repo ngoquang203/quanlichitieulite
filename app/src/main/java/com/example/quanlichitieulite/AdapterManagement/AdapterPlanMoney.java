@@ -1,6 +1,9 @@
 package com.example.quanlichitieulite.AdapterManagement;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,21 +12,26 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.quanlichitieulite.Datasqlitemanagement.PlanMonney;
+import com.example.quanlichitieulite.Datasqlitemanagement.ServiceSpent;
 import com.example.quanlichitieulite.R;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterPlanMoney extends BaseAdapter {
     Context context;
     ArrayList<PlanMonney> arrayList;
     LayoutInflater layoutInflater;
+    private List<ServiceSpent> serviceappList;
 
-    public AdapterPlanMoney(Context context,ArrayList<PlanMonney> arrayList){
+    public AdapterPlanMoney(Context context,ArrayList<PlanMonney> arrayList,List<ServiceSpent> serviceappList){
         this.context = context;
         this.arrayList = arrayList;
         this.layoutInflater = LayoutInflater.from(context);
+        this.serviceappList = serviceappList;
     }
     @Override
     public int getCount() {
@@ -51,24 +59,37 @@ public class AdapterPlanMoney extends BaseAdapter {
         ProgressBar progressBar = convertView.findViewById(R.id.item_planmoney_progressBar);
         TextView supProgressBar = convertView.findViewById(R.id.item_planmoney_supProgressbar);
 
+
+
         PlanMonney planMoney = arrayList.get(position);
         if(planMoney != null){
             DecimalFormat df = new DecimalFormat("###,###,###.## VND");
-            if(planMoney.getIDplan()%2 == 0){
-                textNamePlan.setText("Chi");
+            String strNameService = null;
+                for(int i = 0;i<serviceappList.size();++i){
+                    if(serviceappList.get(i).getIDservicespent().equals(planMoney.getIDservice())){
+                        strNameService = serviceappList.get(i).getNameservice();
+                        break;
+                    }
+                }
+                textNamePlan.setText(strNameService.toString());
                 textNamePlan.setTextColor(convertView.getResources().getColor(R.color.red100));
-            }
-            else{
-                textNamePlan.setText("Thu");
-                textNamePlan.setTextColor(convertView.getResources().getColor(R.color.green100));
-            }
+
             textMoneyPlan.setText(df.format(planMoney.getSummoney()));
             textDateStart.setText(planMoney.getDateStart());
             textDateEnd.setText(planMoney.getDateEnd());
             textMoneyNow.setText(df.format(planMoney.getMoneyNow()));
-            int value = (int) (Float.valueOf(planMoney.getMoneyNow()) / Float.valueOf(planMoney.getSummoney()) * 100);
+            int value = 0;
+            float x = (Float.valueOf(planMoney.getMoneyNow()) / Float.valueOf(planMoney.getSummoney()) * 100);
+            if(x<=100){
+                value = (int) x;
+            }else{
+                value = 100;
+            }
+
             progressBar.setProgress(value);
+            progressBar.setProgressDrawable(convertView.getResources().getDrawable(R.drawable.custom_spinner));
             supProgressBar.setText(value + "%");
+            Log.e("DATA",planMoney.getNamePlanMoney() + " " + planMoney.getIDservice());
         }
         return convertView;
     }

@@ -5,15 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingHorizontal="@dimen/regular2"
-    android:background="@drawable/background_input">
+    android:background="@drawable/background_input"
+    android:backgroundTint="@color/dark">
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nhập dịch vụ muốn thêm"
-        android:textSize="@dimen/title2"
+        android:textSize="@dimen/regular1"
         android:textStyle="bold"
-        android:layout_marginTop="@dimen/title2"/>
+        android:layout_marginTop="@dimen/title2"
+        android:fontFamily="@font/opensans"
+        android:textColor="@color/light"/>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,8 +27,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_input"
+            android:backgroundTint="@color/dark10"
             android:ems="10"
-            android:hint=""
+            android:hint="Nhập vô đây"
+            android:textColorHint="@color/light"
+            android:textColor="@color/light"
             android:inputType="text"
             android:textSize="@dimen/title3"
             android:layout_marginTop="10dp"/>
@@ -36,8 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thêm"
-        android:textStyle="bold"
-        android:textSize="@dimen/title2"
+        android:textSize="@dimen/title3"
+        android:fontFamily="@font/opensans_bold"
         android:layout_marginTop="@dimen/regular2"
         android:background="@drawable/background_input"/>
 </LinearLayout>

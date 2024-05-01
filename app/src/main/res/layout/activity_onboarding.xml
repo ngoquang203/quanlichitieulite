@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Onboarding"
     android:orientation="vertical"
-    android:background="@color/light100">
+    android:background="@color/dark">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onboarding_viewpage2"
@@ -71,10 +71,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bắt đầu"
-            android:textSize="@dimen/title2"
-            android:fontFamily="@font/robuto_font"
+            android:textSize="@dimen/regular1"
+            android:fontFamily="@font/opensans_bold"
             android:background="@drawable/background_border"
             android:backgroundTint="@color/blue80"
-            android:textColor="@color/light100"/>
+            android:textColor="@color/light"/>
     </LinearLayout>
 </LinearLayout>

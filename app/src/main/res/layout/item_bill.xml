@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:background="@color/dark">
     <TextView
         android:paddingLeft="@dimen/regular2"
         android:id="@+id/bill_date1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/robuto_font"
+        android:fontFamily="@font/opensans"
+        android:textColor="@color/light10"
         android:text="1/1/2024"
         android:visibility="visible"/>
 
@@ -17,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/background_listview">
+        android:background="@drawable/background_listview"
+        android:backgroundTint="@color/dark10">
 
         <LinearLayout
             android:layout_marginLeft="@dimen/regular2"
@@ -31,15 +34,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:fontFamily="@font/robuto_font"
-                android:textSize="@dimen/title2"/>
+                android:fontFamily="@font/opensans"
+                android:textSize="@dimen/regular1"
+                android:textColor="@color/light"/>
             <TextView
                 android:id="@+id/bill_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/robuto_font"
+                android:fontFamily="@font/opensans"
                 android:text="Time"
-                android:textSize="@dimen/regular2"/>
+                android:textSize="@dimen/regular2"
+                android:textColor="@color/light"/>
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
@@ -52,9 +57,10 @@
                 android:id="@+id/bill_money"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/robuto_font"
+                android:fontFamily="@font/opensans"
                 android:text="Menoy"
-                android:textSize="@dimen/title3"/>
+                android:textSize="@dimen/regular2"
+                android:textColor="@color/light"/>
 
         </LinearLayout>
     </LinearLayout>

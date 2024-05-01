@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -51,7 +52,7 @@ public class MainFragment extends Fragment {
     private View view;
     private SharedPreferences sharedPreferences;
     private long sumCollect,sumSpent;
-    private Button addIncomeButton,addExpneceButton,buttonPlanMoney;
+    private LinearLayout addIncomeButton,addExpneceButton,buttonPlanMoney;
     private TextView textName,SumCollect,SumSpent,SumNow,textErron;
     private SQLiteManagement sqLiteManagement;
     private Users users;
@@ -64,6 +65,7 @@ public class MainFragment extends Fragment {
 
     private SimpleDateFormat simpleDateFormat;
     private AdapterBill adapterBill;
+    private DecimalFormat df = new DecimalFormat("###,###,###.## VND");
 
 
     @Override
@@ -84,7 +86,6 @@ public class MainFragment extends Fragment {
         SpentMoney spentMoney = sqLiteManagement.getDataSpentMoney();
         CollectMoney collectMoney = sqLiteManagement.getDataCollectMoney();
         setDateInit();
-        Log.e("DATE",dateStartInit + " " + dateEndInit);
         tableSpent = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetSpent(changDate(dateStartInit),changDate(dateEndInit));
         tableCollect = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetCollect(changDate(dateStartInit),changDate(dateEndInit));
         sumCollect = getSum(tableCollect);
@@ -146,12 +147,12 @@ public class MainFragment extends Fragment {
     }
 
     private void setData() {
-        DecimalFormat df = new DecimalFormat("###,###,###.## VND");
         SumCollect.setText(df.format(sumCollect));
         SumSpent.setText(df.format(sumSpent));
         SumNow.setText(df.format(sumCollect - sumSpent));
         textName.setText(users.getNames());
     }
+
 
 
     private void clickButton() {

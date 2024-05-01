@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Frament.MainFragment"
-    android:background="@color/light80"
+    android:background="@color/dark"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/background_cardview"
-        android:backgroundTint="@color/blue80">
+        android:backgroundTint="@color/green">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +48,7 @@
             android:layout_marginHorizontal="@dimen/title2"
             android:layout_marginBottom="10dp"
             android:background="@drawable/background_border"
-            android:backgroundTint="@color/light100"
+            android:backgroundTint="@color/dark10"
             android:orientation="horizontal"
             android:paddingVertical="5dp">
 
@@ -65,7 +64,7 @@
                     android:fontFamily="@font/notosans_font"
                     android:gravity="start"
                     android:text="Số dư tài khoản"
-                    android:textColor="@color/dark100"
+                    android:textColor="@color/light"
                     android:textSize="@dimen/regular2" />
 
                 <TextView
@@ -75,7 +74,7 @@
                     android:layout_gravity="start"
                     android:fontFamily="@font/notosans_font"
                     android:text="$9400"
-                    android:textColor="@color/dark100"
+                    android:textColor="@color/light"
                     android:autoSizeMaxTextSize="@dimen/title2"
                     android:autoSizeMinTextSize="@dimen/regular2"
                     android:textStyle="bold" />
@@ -95,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:text="Tháng 4"
                     android:gravity="center"
-                    android:textColor="@color/dark50"
+                    android:textColor="@color/light"
                     android:fontFamily="@font/robuto_font"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -179,89 +178,145 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="@dimen/regular2"
-        android:background="@drawable/background_border"
-        android:padding="5dp"
-        android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dịch vụ"
-                android:fontFamily="@font/robuto_font"
-                android:textSize="@dimen/regular2"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/dark20"/>
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/blue"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dịch vụ"
+            android:fontFamily="@font/robuto_font"
+            android:textSize="@dimen/regular2"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/light"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_border"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/dark10"
+            android:layout_marginTop="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
-
-                <Button
-                    android:theme="@style/Base.Theme.ThemeLight"
+                <LinearLayout
                     android:id="@+id/main_addIncomeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/background_border"
-                    android:drawableTop="@drawable/frame_blue"
-                    android:fontFamily="@font/robuto_font"
-                    android:paddingHorizontal="@dimen/regular2"
-                    android:text="Thêm thu"
-                    android:textColor="@color/dark100"
-                    android:textSize="@dimen/regular2" />
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border"
+                        android:backgroundTint="@color/light"
+                        android:paddingVertical="15dp"
+                        android:paddingHorizontal="20dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/frame_blue"
+                            android:contentDescription="@string/listview_erron"/>
+                    </LinearLayout>
 
-                <Button
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thêm thu"
+                        android:textColor="@color/light"
+                        android:textSize="@dimen/regular3"
+                        android:fontFamily="@font/opensans"/>
+                </LinearLayout>
 
+                <LinearLayout
                     android:id="@+id/main_addExpenceButton"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/regular2"
                     android:layout_weight="1"
-                    android:background="@drawable/background_border"
-                    android:drawableTop="@drawable/frame_red"
-                    android:fontFamily="@font/robuto_font"
-                    android:paddingHorizontal="@dimen/regular2"
-                    android:text="Thêm chi"
-                    android:textColor="@color/dark100"
-                    android:textSize="@dimen/regular2"
-                    android:theme="@style/Base.Theme.ThemeLight" />
+                    android:layout_marginHorizontal="10dp"
+                    android:backgroundTint="@color/blue10"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border"
+                        android:backgroundTint="@color/light"
+                        android:paddingVertical="15dp"
+                        android:paddingHorizontal="20dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/frame_red"
+                            android:contentDescription="@string/listview_erron"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thêm chi"
+                        android:textColor="@color/light"
+                        android:textSize="@dimen/regular3"
+                        android:fontFamily="@font/opensans"/>
+                </LinearLayout>
 
-                <Button
+
+                <LinearLayout
                     android:id="@+id/main_buttonPlanMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/background_border"
-                    android:drawableTop="@drawable/wallet_3"
-                    android:fontFamily="@font/robuto_font"
-                    android:paddingHorizontal="@dimen/regular2"
-                    android:text="Kế hoạch"
-                    android:textColor="@color/dark100"
-                    android:textSize="@dimen/regular2"
-                    android:theme="@style/Base.Theme.ThemeLight" />
+                    android:backgroundTint="@color/blue10"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border"
+                        android:backgroundTint="@color/light"
+                        android:paddingVertical="15dp"
+                        android:paddingHorizontal="20dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/wallet_3"
+                            android:contentDescription="@string/listview_erron"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kế hoạch"
+                        android:textColor="@color/light"
+                        android:textSize="@dimen/regular3"
+                        android:fontFamily="@font/opensans"/>
+                </LinearLayout>
 
             </LinearLayout>
 
-    </LinearLayout>
+        </LinearLayout>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Chi tiêu trong hôm nay"
+            android:fontFamily="@font/robuto_font"
+            android:textSize="@dimen/regular2"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/light"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_partboder"
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/dark"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chi tiêu trong hôm nay"
-                android:fontFamily="@font/robuto_font"
-                android:textSize="@dimen/regular2"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/dark20"/>
-
             <TextView
                 android:id="@+id/main_textViewErron"
                 android:gravity="center"
@@ -269,6 +324,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Không có chi tiêu trong hôm nay"
+                android:textColor="@color/light"
                 android:visibility="visible"/>
             <ListView
                 android:id="@+id/main_viewpager2"
@@ -276,8 +332,10 @@
                 android:contentDescription="@string/listview_erron"
                 android:layout_height="match_parent"
                 android:background="@color/light60"
+                android:backgroundTint="@color/dark"
                 android:visibility="gone"/>
         </LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>

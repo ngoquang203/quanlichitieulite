@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Catergory"
-        android:textSize="@dimen/title2" />
+        android:textColor="@color/light"
+        android:fontFamily="@font/opensans"
+        android:textSize="@dimen/regular2" />
     <ImageView
         android:id="@+id/income_category"
         android:layout_width="wrap_content"

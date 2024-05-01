@@ -16,7 +16,7 @@ public class Users {
     private String NumberPhone;
     private String Email;
     public Users(){};
-    public Users(int idUsers,String names, String sex, String numberPhone, String email) {
+    public Users(int idUsers,String names,String sex, String numberPhone, String email) {
         IDusers = idUsers;
         Names = names;
         Sex = sex;
@@ -69,4 +69,6 @@ public class Users {
     public void setEmail(String email) {
         Email = email;
     }
+
+
 }

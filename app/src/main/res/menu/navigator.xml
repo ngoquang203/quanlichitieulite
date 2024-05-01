@@ -2,14 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_home"
         android:icon="@drawable/home"
-        android:title="Home"/>
+        android:title="Home"
+        android:iconTint="@color/blue"/>
     <item android:id="@+id/menu_transaction"
         android:icon="@drawable/transaction"
-        android:title="Lịch sử"/>
+        android:title="Lịch sử"
+        android:iconTint="@color/blue"/>
     <item android:id="@+id/menu_budget"
         android:icon="@drawable/pie_chart"
-        android:title="Thống kê"/>
+        android:title="Thống kê"
+        android:iconTint="@color/blue"/>
     <item android:id="@+id/menu_profile"
         android:icon="@drawable/user"
-        android:title="Profile"/>
+        android:title="Profile"
+        android:iconTint="@color/blue"
+        android:iconTintMode="add"/>
 </menu>
