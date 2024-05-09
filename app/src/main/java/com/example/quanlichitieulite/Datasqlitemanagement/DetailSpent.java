@@ -12,8 +12,8 @@ import java.sql.Time;
 
 public class DetailSpent {
    private int IDdetailspent;
-   private int IDspent;
-   private String IDservicespent,Nameservice;
+   private int IDservicespent,IDspent;
+   private String Nameservice;
    private long Price;
    private String Content;
    private double Dates;
@@ -21,7 +21,7 @@ public class DetailSpent {
    private long MoneyNow;
 
    public DetailSpent(){};
-    public DetailSpent(int IDdetailspent, int IDspent, String IDservicespent,String nameservice, long price, String content, double dates,String times,long moneynow) {
+    public DetailSpent(int IDdetailspent, int IDspent, int IDservicespent,String nameservice, long price, String content, double dates,String times,long moneynow) {
         this.IDdetailspent = IDdetailspent;
         this.IDspent = IDspent;
         this.IDservicespent = IDservicespent;
@@ -105,11 +105,11 @@ public class DetailSpent {
         this.IDspent = IDspent;
     }
 
-    public String getIDservicespent() {
+    public int getIDservicespent() {
         return IDservicespent;
     }
 
-    public void setIDservicespent(String IDservicespent) {
+    public void setIDservicespent(int IDservicespent) {
         this.IDservicespent = IDservicespent;
     }
 

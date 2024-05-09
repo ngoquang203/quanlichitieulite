@@ -72,8 +72,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintEnabled="false"
-                >
+                app:hintEnabled="false">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/stated_money"
                     android:layout_width="match_parent"
@@ -89,14 +88,13 @@
                     android:textSize="@dimen/title3"
                     android:layout_marginTop="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
-
             <TextView
                 android:id="@+id/stated_confirm"
                 android:layout_marginTop="@dimen/title2"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Xác nhận"
+                android:text="Tiếp theo"
                 android:textSize="@dimen/regular1"
                 android:textColor="@color/light"
                 android:fontFamily="@font/opensans_bold"

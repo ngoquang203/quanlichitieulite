@@ -1,49 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:paddingHorizontal="@dimen/regular2"
     android:background="@drawable/background_input"
-    android:backgroundTint="@color/dark">
+    android:backgroundTint="@color/dark"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/regular2">
+
     <TextView
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nhập dịch vụ muốn thêm"
-        android:textSize="@dimen/regular1"
-        android:textStyle="bold"
         android:layout_marginTop="@dimen/title2"
         android:fontFamily="@font/opensans"
-        android:textColor="@color/light"/>
+        android:gravity="center"
+        android:text="Nhập dịch vụ muốn thêm"
+        android:textColor="@color/light"
+        android:textSize="@dimen/regular1"
+        android:textStyle="bold" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hintEnabled="false"
-        android:layout_marginTop="@dimen/regular2">
+        android:layout_marginTop="@dimen/regular2"
+        app:hintEnabled="false">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dialog_service"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@drawable/background_input"
             android:backgroundTint="@color/dark10"
             android:ems="10"
-            android:hint="Nhập vô đây"
-            android:textColorHint="@color/light"
-            android:textColor="@color/light"
+            android:hint="Nhập dịch vụ bạn muốn thêm"
             android:inputType="text"
-            android:textSize="@dimen/title3"
-            android:layout_marginTop="10dp"/>
+            android:textColor="@color/light"
+            android:textColorHint="@color/light"
+            android:textSize="@dimen/title3" />
     </com.google.android.material.textfield.TextInputLayout>
-    <Button
-        android:id="@+id/dialog_buttonAddService"
-        android:theme="@style/Base.Theme.ThemeBlue"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/regular2"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_input"
+            android:backgroundTint="@color/dark10"
+            android:ems="10"
+            android:hint="Mô tả về dịch vụ"
+            android:inputType="text"
+            android:textColor="@color/light"
+            android:textColorHint="@color/light"
+            android:textSize="@dimen/title3" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/dialog_buttonAddService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/regular2"
+        android:background="@drawable/background_input"
+        android:fontFamily="@font/opensans_bold"
         android:text="Thêm"
         android:textSize="@dimen/title3"
-        android:fontFamily="@font/opensans_bold"
-        android:layout_marginTop="@dimen/regular2"
-        android:background="@drawable/background_input"/>
+        android:theme="@style/Base.Theme.ThemeBlue" />
 </LinearLayout>

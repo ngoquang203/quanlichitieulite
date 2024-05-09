@@ -9,10 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ServiceCollect {
-    private String IDservicecollect,Nameservice,Explain;
+    private int IDservicecollect;
+    private String Nameservice,Explain;
 
-    public ServiceCollect(String IDservicecollect, String nameservice, String explain) {
+    public ServiceCollect(int IDservicecollect, String nameservice, String explain) {
         this.IDservicecollect = IDservicecollect;
+        Nameservice = nameservice;
+        Explain = explain;
+    }
+    public ServiceCollect(String nameservice,String explain){
         Nameservice = nameservice;
         Explain = explain;
     }
@@ -35,11 +40,11 @@ public class ServiceCollect {
 //        return list;
 //    }
 
-    public String getIDservicecollect() {
+    public int getIDservicecollect() {
         return IDservicecollect;
     }
 
-    public void setIDservicecollect(String IDservicecollect) {
+    public void setIDservicecollect(int IDservicecollect) {
         this.IDservicecollect = IDservicecollect;
     }
 

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_home"
         android:icon="@drawable/home"
-        android:title="Home"
+        android:title="Trang chủ"
         android:iconTint="@color/blue"/>
     <item android:id="@+id/menu_transaction"
         android:icon="@drawable/transaction"
@@ -14,7 +14,7 @@
         android:iconTint="@color/blue"/>
     <item android:id="@+id/menu_profile"
         android:icon="@drawable/user"
-        android:title="Profile"
+        android:title="Hồ sơ"
         android:iconTint="@color/blue"
         android:iconTintMode="add"/>
 </menu>

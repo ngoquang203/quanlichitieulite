@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.quanlichitieulite"
-        minSdk = 30
+        minSdk = 28
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -29,6 +29,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -40,7 +43,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.core:core-ktx:VERSION")
-
 
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")

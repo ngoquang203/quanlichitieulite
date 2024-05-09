@@ -47,7 +47,8 @@ public class Expence extends AppCompatActivity {
     private TextInputEditText expence_description;
     private Button expence_button;
     private ImageButton expence_back;
-    private String Money,Description,IDservice,dates,times,Nameservice;
+    private String Money,Description,dates,times,Nameservice;
+    private int IDservice;
     private SharedPreferences sharedPreferences;
     private int IDspent;
     private long SumCollect,SumSpent,SumNow;
@@ -76,7 +77,7 @@ public class Expence extends AppCompatActivity {
         dateTextInputEditText = findViewById(R.id.expence_date);
         timeTextInputEditText = findViewById(R.id.expence_time);
 
-        IDservice = serviceappList.get(spinner.getSelectedItemPosition()).getNameservice();
+        IDservice = serviceappList.get(spinner.getSelectedItemPosition()).getIDservicespent();
         expence_back = findViewById(R.id.expence_back);
         expence_money = findViewById(R.id.expence_money);
         expence_description = findViewById(R.id.expence_description);

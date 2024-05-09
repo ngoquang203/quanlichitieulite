@@ -5,16 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LaunchScreen"
-    android:background="@color/blue80"
-    android:orientation="horizontal">
+    android:background="@color/dark"
+    android:gravity="center"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/listview_erron"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="montra"
+        android:text="Save Money"
         android:textSize="@dimen/title1"
-        android:textColor="@color/light100"
-        android:textStyle="bold"/>
-
+        android:textColor="@color/light"
+        android:textStyle="bold"
+        android:fontFamily="@font/opensans_itatic"/>
 </LinearLayout>

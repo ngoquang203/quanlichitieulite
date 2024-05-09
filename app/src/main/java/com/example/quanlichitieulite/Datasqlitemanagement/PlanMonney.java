@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class PlanMonney {
     private int IDuser,IDplan,NamePlanMoney;
-    private String IDservice;
+    private int IDservice;
     private long Summoney;
     private String DateStart;
     private String DateEnd;
@@ -19,7 +19,7 @@ public class PlanMonney {
     private long MoneyNow;
 
     public PlanMonney(){};
-    public PlanMonney(int IDuser,int IDplan, int NamePlanMoney,String IDservice, long summoney, String dateStart,String dateEnd, String contents,long moneyNow) {
+    public PlanMonney(int IDuser,int IDplan, int NamePlanMoney,int IDservice, long summoney, String dateStart,String dateEnd, String contents,long moneyNow) {
         this.IDuser = IDuser;
         this.IDplan = IDplan;
         this.NamePlanMoney = NamePlanMoney;
@@ -144,11 +144,11 @@ public class PlanMonney {
         NamePlanMoney = namePlanMoney;
     }
 
-    public String getIDservice() {
+    public int getIDservice() {
         return IDservice;
     }
 
-    public void setIDservice(String IDservice) {
+    public void setIDservice(int IDservice) {
         this.IDservice = IDservice;
     }
 }

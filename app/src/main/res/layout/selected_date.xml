@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:text="Chọn thời gian xem báo cáo  "
             android:textSize="@dimen/title2"
-            android:textStyle="bold"/>
+            android:textColor="@color/light"
+            android:fontFamily="@font/opensans_bold"/>
         <ImageButton
             android:layout_gravity="center"
             android:id="@+id/selected_date_buttonClose"
@@ -33,6 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thời gian bắt đầu"
+        android:textColor="@color/light"
+        android:fontFamily="@font/opensans"
         android:paddingLeft="10dp"/>
     <TextView
         android:id="@+id/selected_date_textDateStart"
@@ -40,6 +43,8 @@
         android:layout_height="wrap_content"
         android:text="Ngày"
         android:textSize="@dimen/title2"
+        android:textColor="@color/light"
+        android:fontFamily="@font/opensans"
         android:background="@drawable/background_input"
         android:drawableEnd="@drawable/edit"
         />
@@ -47,6 +52,8 @@
         android:layout_marginTop="@dimen/title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/light"
+        android:fontFamily="@font/opensans"
         android:text="Thời gian kết thúc"
         android:paddingLeft="10dp"/>
     <TextView
@@ -55,6 +62,8 @@
         android:layout_height="wrap_content"
         android:text="Ngày"
         android:textSize="@dimen/title2"
+        android:textColor="@color/light"
+        android:fontFamily="@font/opensans"
         android:background="@drawable/background_input"
         android:drawableEnd="@drawable/edit"
         />

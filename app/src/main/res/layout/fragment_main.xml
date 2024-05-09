@@ -85,22 +85,25 @@
                 android:background="@color/dark20"
                 android:layout_marginLeft="@dimen/regular2"/>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginLeft="@dimen/regular2">
-                <TextView
+                <Spinner
+                    android:id="@+id/main_textDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tháng 4"
                     android:gravity="center"
+                    android:background="@drawable/background_border"
+                    android:backgroundTint="@color/dark10"
+                    android:paddingVertical="0dp"
+                    android:paddingHorizontal="10dp"
                     android:textColor="@color/light"
                     android:fontFamily="@font/robuto_font"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -193,6 +196,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_border"
+            android:weightSum="3"
             android:orientation="vertical"
             android:layout_marginHorizontal="10dp"
             android:backgroundTint="@color/dark10"
@@ -201,7 +205,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <LinearLayout
@@ -215,7 +219,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/light"
+                        android:backgroundTint="@color/light20"
                         android:paddingVertical="15dp"
                         android:paddingHorizontal="20dp">
                         <ImageView
@@ -248,7 +252,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/light"
+                        android:backgroundTint="@color/light20"
                         android:paddingVertical="15dp"
                         android:paddingHorizontal="20dp">
                         <ImageView
@@ -266,37 +270,39 @@
                         android:fontFamily="@font/opensans"/>
                 </LinearLayout>
 
-
                 <LinearLayout
                     android:id="@+id/main_buttonPlanMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginHorizontal="10dp"
                     android:backgroundTint="@color/blue10"
                     android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:layout_gravity="center">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/light"
-                        android:paddingVertical="15dp"
-                        android:paddingHorizontal="20dp">
+                        android:backgroundTint="@color/light20"
+                        android:paddingVertical="17dp"
+                        android:paddingHorizontal="19dp">
                         <ImageView
+                            android:id="@+id/main_imagePlanMoney"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/wallet_3"
                             android:contentDescription="@string/listview_erron"/>
                     </LinearLayout>
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="75dp"
                         android:layout_height="wrap_content"
-                        android:text="Kế hoạch"
+                        android:gravity="center"
+                        android:text="Lập kế hoạch"
                         android:textColor="@color/light"
                         android:textSize="@dimen/regular3"
                         android:fontFamily="@font/opensans"/>
                 </LinearLayout>
-
             </LinearLayout>
 
         </LinearLayout>

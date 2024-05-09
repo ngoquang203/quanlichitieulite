@@ -113,7 +113,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 PlanMoney_IDuser + " INTEGER," +
                 PlanMoney_IDplan +  " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 PlanMoney_NamePlanMoney + " INTEGER," +
-                PlanMoney_IDservice + " TEXT," +
+                PlanMoney_IDservice + " INTEGER," +
                 PlanMoney_SumMoney + " BIGINT," +
                 PlanMoney_DateStart + " REAL," +
                 PlanMoney_DateEnd + " REAL," +
@@ -131,12 +131,12 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 CollectMoney_SumCollect + " BIGINT)";
 
         String tbServiceSpent = "CREATE TABLE " + ServiceSpent + "(" +
-                ServiceSpent_IDservicespent + " TEXT PRIMARY KEY," +
+                ServiceSpent_IDservicespent + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 ServiceSpent_Nameservice + " TEXT," +
                 ServiceSpent_Content + " TEXT)";
 
         String tbServiceCollect  = "CREATE TABLE " + ServiceCollect  + "(" +
-                ServiceCollect_IDservicecollect + " TEXT PRIMARY KEY," +
+                ServiceCollect_IDservicecollect + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 ServiceCollect_Nameservice + " TEXT," +
                 ServiceCollect_Content + " TEXT)";
 
@@ -186,7 +186,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void InsertPlanMoney(int id,String idservice,long money,String dateStart,String dateEnd,String content){
+    public void InsertPlanMoney(int id,int idservice,long money,String dateStart,String dateEnd,String content){
         SQLiteDatabase db = this.open();
         String str = "INSERT INTO " + PlanMoney + "(" + PlanMoney_NamePlanMoney + "," + PlanMoney_IDservice + "," + PlanMoney_SumMoney + ","
                 + PlanMoney_DateStart + "," + PlanMoney_DateEnd + ","
@@ -263,7 +263,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                         cursor.getInt(0),
                         cursor.getInt(1),
                         cursor.getInt(2),
-                        cursor.getString(3),
+                        cursor.getInt(3),
                         cursor.getLong(4),
                         cursor.getString(5),
                         cursor.getString(6),
@@ -383,7 +383,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 list.add(new BillData(
                         cursor.getInt(0),
                         cursor.getInt(1),
-                        cursor.getString(2),
+                        cursor.getInt(2),
                         cursor.getString(3),
                         cursor.getLong(4),
                         cursor.getString(5),
@@ -410,7 +410,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 list.add(new BillData(
                         cursor.getInt(0),
                         cursor.getInt(1),
-                        cursor.getString(2),
+                        cursor.getInt(2),
                         cursor.getString(3),
                         cursor.getLong(4),
                         cursor.getString(5),
@@ -444,7 +444,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 list.add(new BillData(
                         cursor.getInt(0),
                         cursor.getInt(1),
-                        cursor.getString(2),
+                        cursor.getInt(2),
                         cursor.getString(3),
                         cursor.getLong(4),
                         cursor.getString(5),
@@ -470,7 +470,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 list.add(new BillData(
                         cursor.getInt(0),
                         cursor.getInt(1),
-                        cursor.getString(2),
+                        cursor.getInt(2),
                         cursor.getString(3),
                         cursor.getLong(4),
                         cursor.getString(5),
@@ -503,7 +503,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void InsertDetailSpent(String IDservicespent,String Nameservice,long Price,String Content,String Date,String Time,long MoneyNow){
+    public void InsertDetailSpent(int IDservicespent,String Nameservice,long Price,String Content,String Date,String Time,long MoneyNow){
         SQLiteDatabase db = this.open();
         String str = "INSERT INTO " + DetailSpent + "(" + DetailSpent_IDspent + "," + DetailSpent_IDservicespent + ","
                 + DetailSpent_Nameservice + "," + DetailSpent_Price + ","
@@ -533,7 +533,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 detailSpents.add(new DetailSpent(
                         cursor.getInt(0),
                         cursor.getInt(1),
-                        cursor.getString(2),
+                        cursor.getInt(2),
                         cursor.getString(3),
                         cursor.getLong(4),
                         cursor.getString(5),
@@ -548,7 +548,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         return detailSpents;
     }
 
-    public void InsertDetailCollect(String IDservicecollect,String Nameservice,long Price,String Content,String Date,String Time,long MoneyNow){
+    public void InsertDetailCollect(int IDservicecollect,String Nameservice,long Price,String Content,String Date,String Time,long MoneyNow){
         SQLiteDatabase db = this.open();
         String str = "INSERT INTO " + DetailCollect + "(" + DetailCollect_IDcollect + "," + DetailCollect_IDservicecollect + ","
                 + DetailCollect_Nameservice + "," + DetailCollect_Price + ","
@@ -577,7 +577,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
                 detailColects.add(new DetailColect(
                         cursor.getInt(0),
                         cursor.getInt(1),
-                        cursor.getString(2),
+                        cursor.getInt(2),
                         cursor.getString(3),
                         cursor.getLong(4),
                         cursor.getString(5),
@@ -592,10 +592,19 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         return detailColects;
     }
 
-    public void InsertServiceSpent(String ID, String Name ,String SupName){
+    public void updateServiceSpent(int id,String nameService,String content){
+        SQLiteDatabase db = this.open();
+        String str = "UPDATE " + SQLiteManagement.ServiceSpent +
+                " SET " + SQLiteManagement.ServiceSpent_Nameservice + " = '" + nameService + "'," + SQLiteManagement.ServiceSpent_Content + " = '" + content + "'" +
+                " WHERE " + SQLiteManagement.ServiceSpent_IDservicespent + " = " + id;
+        Log.e("DATA",str);
+        db.execSQL(str);
+        db.close();
+    }
+
+    public void InsertServiceSpent(String Name ,String SupName){
         SQLiteDatabase db = this.open();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(SQLiteManagement.ServiceSpent_IDservicespent,ID);
         contentValues.put(SQLiteManagement.ServiceSpent_Nameservice,Name);
         contentValues.put(SQLiteManagement.ServiceSpent_Content,SupName);
         long newInsert = db.insert(SQLiteManagement.ServiceSpent,null,contentValues);
@@ -610,7 +619,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
             do{
                 serviceSpents.add(new ServiceSpent(
-                       cursor.getString(0),
+                       cursor.getInt(0),
                        cursor.getString(1),
                        cursor.getString(2)
                 ));
@@ -621,11 +630,19 @@ public class SQLiteManagement extends SQLiteOpenHelper {
 
         return serviceSpents;
     }
+    public void updateServiceCollect(int id,String nameService,String content){
+        SQLiteDatabase db = this.open();
+        String str = "UPDATE " + SQLiteManagement.ServiceCollect +
+                " SET " + SQLiteManagement.ServiceCollect_Nameservice + " = '" + nameService + "'," + SQLiteManagement.ServiceCollect_Content + " = '" + content + "'" +
+                " WHERE " + SQLiteManagement.ServiceCollect_IDservicecollect + " = " + id;
+        Log.e("DATA",str);
+        db.execSQL(str);
+        db.close();
+    }
 
-    public void InsertServiceCollect(String ID, String Name ,String SupName){
+    public void InsertServiceCollect(String Name ,String SupName){
         SQLiteDatabase db = this.open();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(SQLiteManagement.ServiceCollect_IDservicecollect,ID);
         contentValues.put(SQLiteManagement.ServiceCollect_Nameservice,Name);
         contentValues.put(SQLiteManagement.ServiceCollect_Content,SupName);
         long newInsert = db.insert(SQLiteManagement.ServiceCollect,null,contentValues);
@@ -640,7 +657,7 @@ public class SQLiteManagement extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
             do{
                 serviceCollects.add(new ServiceCollect(
-                        cursor.getString(0),
+                        cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2)
                 ));

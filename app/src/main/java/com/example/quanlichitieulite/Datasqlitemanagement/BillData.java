@@ -8,15 +8,15 @@ import java.util.Date;
 
 public class BillData implements Comparable<BillData> {
     private int Id;
-    private int idDataCategory;
-    private String IDservicecollect,Nameservice;
+    private int IDservicecollect,idDataCategory;
+    private String Nameservice;
     private long Price;
     private String Content;
     private String Dates;
     private String Times;
     private long MoneyNow;
     public BillData(){};
-    public BillData(int id, int idDataCategory, String IDservicecollect,String Nameservice, long price, String content, String dates,String times,long moneyNow) {
+    public BillData(int id, int idDataCategory, int IDservicecollect,String Nameservice, long price, String content, String dates,String times,long moneyNow) {
         Id = id;
         this.idDataCategory = idDataCategory;
         this.IDservicecollect = IDservicecollect;
@@ -69,11 +69,11 @@ public class BillData implements Comparable<BillData> {
     }
 
 
-    public String getIDservicecollect() {
+    public int getIDservicecollect() {
         return IDservicecollect;
     }
 
-    public void setIDservicecollect(String IDservicecollect) {
+    public void setIDservicecollect(int IDservicecollect) {
         this.IDservicecollect = IDservicecollect;
     }
 

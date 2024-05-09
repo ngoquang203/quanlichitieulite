@@ -22,7 +22,7 @@ public class LaunchScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if(selectedActivity.equals(true)){
-                    Intent intent = new Intent(LaunchScreen.this,Home.class);
+                    Intent intent = new Intent(LaunchScreen.this,PassCodeView.class);
                     startActivity(intent);
                 }
                 else{

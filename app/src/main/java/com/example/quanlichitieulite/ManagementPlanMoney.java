@@ -87,6 +87,7 @@ public class ManagementPlanMoney extends AppCompatActivity {
 
     private void Init() {
         sqLiteManagement = new SQLiteManagement(this);
+        sharedPreferences = getSharedPreferences("loginData",MODE_PRIVATE);
         imageButton = findViewById(R.id.managementPlanMoney_back);
         listView = findViewById(R.id.managementPlanMoney_listview);
         List<ServiceSpent> serviceappList = sqLiteManagement.getDataServiceSpent();
@@ -94,14 +95,12 @@ public class ManagementPlanMoney extends AppCompatActivity {
         arrayList = new ArrayList<>();
         textView = findViewById(R.id.managementPlanMoney_textview);
         arrayList = (ArrayList<PlanMonney>) sqLiteManagement.getListDataPlanMoney();
-        for(int i = 0;i<arrayList.size();++i){
-            Log.e("IDplan",String.valueOf(arrayList.get(i).getIDplan()));
-        }
+
         adapterPlanMoney = new AdapterPlanMoney(this,arrayList,serviceappList);
         listView.setAdapter(adapterPlanMoney);
-
         listViewIsNull();
     }
+
 
     private void listViewIsNull() {
         if(arrayList.isEmpty()){

@@ -9,9 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ServiceSpent {
-    private String IDservicespent,Nameservice,Explain;
+    private int IDservicespent;
+    private String Nameservice,Explain;
 
-    public ServiceSpent(String IDservicespent, String nameservice, String explain) {
+    public ServiceSpent(int IDservicespent, String nameservice, String explain) {
         this.IDservicespent = IDservicespent;
         Nameservice = nameservice;
         Explain = explain;
@@ -35,11 +36,11 @@ public class ServiceSpent {
 //        return list;
 //    }
 
-    public String getIDservicespent() {
+    public int getIDservicespent() {
         return IDservicespent;
     }
 
-    public void setIDservicespent(String IDservicespent) {
+    public void setIDservicespent(int IDservicespent) {
         this.IDservicespent = IDservicespent;
     }
 

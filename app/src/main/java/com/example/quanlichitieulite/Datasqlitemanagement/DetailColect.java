@@ -13,9 +13,9 @@ import java.sql.Time;
 
 public class DetailColect {
     private int IDdetailcolect;
-    private int IDcollect;
+    private int IDservicecollect,IDcollect;
 
-    private String IDservicecollect,Nameservice;
+    private String Nameservice;
     private long Price;
     private String Content;
     private double Dates;
@@ -24,7 +24,7 @@ public class DetailColect {
 
 
     public DetailColect(){};
-    public DetailColect(int IDDetailcolect, int IDcollect, String IDservicecollect,String nameservice, long price, String content, double dates,String times,long moneynow) {
+    public DetailColect(int IDDetailcolect, int IDcollect, int IDservicecollect,String nameservice, long price, String content, double dates,String times,long moneynow) {
         IDdetailcolect = IDDetailcolect;
         this.IDcollect = IDcollect;
         this.IDservicecollect = IDservicecollect;
@@ -100,11 +100,11 @@ public class DetailColect {
         this.IDcollect = IDcollect;
     }
 
-    public String getIDservicecollect() {
+    public int getIDservicecollect() {
         return IDservicecollect;
     }
 
-    public void setIDservicecollect(String IDservicecollect) {
+    public void setIDservicecollect(int IDservicecollect) {
         this.IDservicecollect = IDservicecollect;
     }
 

@@ -66,7 +66,7 @@ public class AdapterPlanMoney extends BaseAdapter {
             DecimalFormat df = new DecimalFormat("###,###,###.## VND");
             String strNameService = null;
                 for(int i = 0;i<serviceappList.size();++i){
-                    if(serviceappList.get(i).getIDservicespent().equals(planMoney.getIDservice())){
+                    if(serviceappList.get(i).getIDservicespent() == planMoney.getIDservice()){
                         strNameService = serviceappList.get(i).getNameservice();
                         break;
                     }

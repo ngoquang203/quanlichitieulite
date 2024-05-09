@@ -12,6 +12,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
@@ -44,7 +45,8 @@ public class Income extends AppCompatActivity {
     private TextInputEditText income_description;
     private Button income_button;
     private ImageButton income_back;
-    private String Money,Description,IDservice,dates,times,Nameservice;
+    private String Money,Description,dates,times,Nameservice;
+    private int IDservice;
     private SharedPreferences sharedPreferences;
     private int IDcollect;
     private long SumCollect,SumSpent,SumNow;
@@ -74,7 +76,7 @@ public class Income extends AppCompatActivity {
         dateTextInputEditText = findViewById(R.id.income_date);
         timeTextInputEditText = findViewById(R.id.income_time);
 
-        IDservice = serviceappList.get(spinner.getSelectedItemPosition()).getNameservice();
+        IDservice = serviceappList.get(spinner.getSelectedItemPosition()).getIDservicecollect();
 
         income_back = findViewById(R.id.income_back);
         income_money = findViewById(R.id.income_money);
@@ -112,6 +114,7 @@ public class Income extends AppCompatActivity {
             }
         });
     }
+
 
     private void clickEditText(){
         Calendar calendar = Calendar.getInstance();

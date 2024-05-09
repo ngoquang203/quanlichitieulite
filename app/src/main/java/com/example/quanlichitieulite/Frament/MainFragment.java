@@ -13,16 +13,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quanlichitieulite.AdapterManagement.AdapterBill;
+import com.example.quanlichitieulite.AdapterManagement.AdapterSpinnerDate;
 import com.example.quanlichitieulite.Datasqlitemanagement.BillData;
 import com.example.quanlichitieulite.Datasqlitemanagement.BudgetData;
 import com.example.quanlichitieulite.Datasqlitemanagement.CollectMoney;
 import com.example.quanlichitieulite.Datasqlitemanagement.DetailColect;
+import com.example.quanlichitieulite.Datasqlitemanagement.PlanMonney;
+import com.example.quanlichitieulite.Datasqlitemanagement.ServiceCollect;
+import com.example.quanlichitieulite.Datasqlitemanagement.ServiceSpent;
 import com.example.quanlichitieulite.Datasqlitemanagement.SpentMoney;
 import com.example.quanlichitieulite.Datasqlitemanagement.Users;
 import com.example.quanlichitieulite.Expence;
@@ -54,6 +62,7 @@ public class MainFragment extends Fragment {
     private long sumCollect,sumSpent;
     private LinearLayout addIncomeButton,addExpneceButton,buttonPlanMoney;
     private TextView textName,SumCollect,SumSpent,SumNow,textErron;
+    private Spinner textDate;
     private SQLiteManagement sqLiteManagement;
     private Users users;
     private ArrayList<BillData> listData;
@@ -67,6 +76,13 @@ public class MainFragment extends Fragment {
     private AdapterBill adapterBill;
     private DecimalFormat df = new DecimalFormat("###,###,###.## VND");
 
+    private SpentMoney spentMoney;
+    private CollectMoney collectMoney;
+    private ImageView imagePlanMoney;
+    private ArrayList<String> listSpiner;
+    private AdapterSpinnerDate adapterSpinnerDate;
+    private int month = Calendar.DAY_OF_MONTH;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,6 +91,7 @@ public class MainFragment extends Fragment {
         Init();
         setData();
         clickButton();
+        setImagePlanMoney();
         return view;
     }
 
@@ -83,8 +100,8 @@ public class MainFragment extends Fragment {
         simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         sqLiteManagement = new SQLiteManagement(getContext());
         users = sqLiteManagement.getDataUser();
-        SpentMoney spentMoney = sqLiteManagement.getDataSpentMoney();
-        CollectMoney collectMoney = sqLiteManagement.getDataCollectMoney();
+        spentMoney = sqLiteManagement.getDataSpentMoney();
+        collectMoney = sqLiteManagement.getDataCollectMoney();
         setDateInit();
         tableSpent = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetSpent(changDate(dateStartInit),changDate(dateEndInit));
         tableCollect = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetCollect(changDate(dateStartInit),changDate(dateEndInit));
@@ -102,12 +119,59 @@ public class MainFragment extends Fragment {
         listData = (ArrayList<BillData>) sqLiteManagement.getListDataSpentAndCollect();
         textErron = view.findViewById(R.id.main_textViewErron);
         listView = view.findViewById(R.id.main_viewpager2);
+        textDate = view.findViewById(R.id.main_textDate);
+        imagePlanMoney = view.findViewById(R.id.main_imagePlanMoney);
+        listSpiner = new ArrayList<>();
+        listSpiner.add("Tháng 1");
+        listSpiner.add("Tháng 2");
+        listSpiner.add("Tháng 3");
+        listSpiner.add("Tháng 4");
+        listSpiner.add("Tháng 5");
+        listSpiner.add("Tháng 6");
+        listSpiner.add("Tháng 7");
+        listSpiner.add("Tháng 8");
+        listSpiner.add("Tháng 9");
+        listSpiner.add("Tháng 10");
+        listSpiner.add("Tháng 11");
+        listSpiner.add("Tháng 12");
+        adapterSpinnerDate = new AdapterSpinnerDate(getContext(),R.layout.item_selected,listSpiner);
+        textDate.setAdapter(adapterSpinnerDate);
+        textDate.setSelection(Calendar.DAY_OF_MONTH-1);
         listViewData = (ArrayList<BillData>) sqLiteManagement.getListDataSpentAndCollectInDay(changDate(simpleDateFormat.format(Calendar.getInstance().getTime())));
         setTextViewErron();
         adapterBill = new AdapterBill(getContext(),listViewData,true);
         listView.setAdapter(adapterBill);
-
         listView.setDivider(null);
+        List<ServiceSpent> serviceSpents =sqLiteManagement.getDataServiceSpent();
+        List<ServiceCollect> serviceCollects = sqLiteManagement.getDataServiceCollect();
+        for(int i = 0;i<serviceSpents.size();++i){
+            Log.e("Spent",serviceSpents.get(i).getIDservicespent() + " " + serviceSpents.get(i).getNameservice());
+        }
+        for(int i = 0;i<serviceCollects.size();++i){
+            Log.e("Spent",serviceCollects.get(i).getIDservicecollect() + " " + serviceCollects.get(i).getNameservice());
+        }
+        getSpinnerClick();
+    }
+
+    private void setImagePlanMoney(){
+
+        ArrayList<PlanMonney> arrayList = (ArrayList<PlanMonney>) sqLiteManagement.getListDataPlanMoney();
+        boolean check = checkServiceFinish(arrayList);
+        if(check){
+            imagePlanMoney.setImageResource(R.drawable.wallet_noti_3);
+        }else{
+            imagePlanMoney.setImageResource(R.drawable.wallet_3);
+        }
+    }
+    private boolean checkServiceFinish(ArrayList<PlanMonney> arrayList){
+        boolean check = false;
+        for(int i = 0;i<arrayList.size();++i){
+            if(arrayList.get(i).getMoneyNow() >= arrayList.get(i).getSummoney()){
+                check = true;
+                break;
+            }
+        }
+        return check;
     }
     private void setTextViewErron(){
         if(listViewData.isEmpty()){
@@ -134,6 +198,37 @@ public class MainFragment extends Fragment {
         calendar.set(Calendar.DAY_OF_MONTH,lastday);
         dateEndInit = simpleDateFormat.format(calendar.getTime());
     }
+    private void changeDateInit(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH,1);
+        dateStartInit = simpleDateFormat.format(calendar.getTime());
+        int lastday = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH,lastday);
+        dateEndInit = simpleDateFormat.format(calendar.getTime());
+    }
+
+    private void getSpinnerClick(){
+        textDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                month = position;
+                changeDateInit();
+                tableSpent = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetSpent(changDate(dateStartInit),changDate(dateEndInit));
+                tableCollect = (ArrayList<BudgetData>) sqLiteManagement.getListDataBudgetCollect(changDate(dateStartInit),changDate(dateEndInit));
+                sumCollect = getSum(tableCollect);
+                sumSpent = getSum(tableSpent);
+                SumCollect.setText(df.format(sumCollect));
+                SumSpent.setText(df.format(sumSpent));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
     public String changDate(String strDate){
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date date = null;
@@ -149,8 +244,10 @@ public class MainFragment extends Fragment {
     private void setData() {
         SumCollect.setText(df.format(sumCollect));
         SumSpent.setText(df.format(sumSpent));
-        SumNow.setText(df.format(sumCollect - sumSpent));
+        SumNow.setText(df.format(collectMoney.getSumCollect() - spentMoney.getSumSpent()));
         textName.setText(users.getNames());
+        Calendar calendar = Calendar.getInstance();
+        String month = String.valueOf(Calendar.DAY_OF_MONTH);
     }
 
 

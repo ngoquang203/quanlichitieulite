@@ -27,6 +27,8 @@ import android.widget.Toast;
 
 import com.example.quanlichitieulite.AdapterManagement.AdapterBudget;
 import com.example.quanlichitieulite.Datasqlitemanagement.BudgetData;
+import com.example.quanlichitieulite.Datasqlitemanagement.ServiceCollect;
+import com.example.quanlichitieulite.Datasqlitemanagement.ServiceSpent;
 import com.example.quanlichitieulite.R;
 import com.example.quanlichitieulite.SQLitemanagement.SQLiteManagement;
 import com.github.mikephil.charting.charts.PieChart;
@@ -75,6 +77,10 @@ public class BudgetFragment extends Fragment {
     private ListView listView;
     private AdapterBudget adapterBudget;
     private LinearLayout layout;
+    private ArrayList<ServiceCollect> serviceCollects;
+    private ArrayList<ServiceSpent> serviceSpents;
+    private List<String> NameCollect;
+    private List<String> NameSpent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,8 +97,8 @@ public class BudgetFragment extends Fragment {
 
     private void getDataOfCollect(){
         List<PieEntry> entries = new ArrayList<>();
-        long[] dataCollect = new long[5];
-        String[] NameCollect = {"","Lương tháng","Tiền thưởng","Tiền lãi ngân hàng","Khác"};
+        long[] dataCollect = new long[NameCollect.size()];
+
         Arrays.fill(dataCollect,0);
         for(int i = 0;i<tableData.size();++i){
             String str = tableData.get(i).getIDservice();
@@ -102,7 +108,7 @@ public class BudgetFragment extends Fragment {
         }
         for(int i = 0;i < dataCollect.length;++i){
             if(dataCollect[i] != 0){
-                entries.add(new PieEntry(dataCollect[i],NameCollect[i]));
+                entries.add(new PieEntry(dataCollect[i],NameCollect.get(i)));
             }
         }
         adapterBudget = new AdapterBudget(getContext(), (ArrayList<PieEntry>) entries);
@@ -121,8 +127,8 @@ public class BudgetFragment extends Fragment {
     }
     private void getDataOfSpent(){
         List<PieEntry> entries = new ArrayList<>();
-        long[] dataSpent = new long[9];
-        String[] NameSpent = {"","Sinh hoạt","Giải trí","Học tập","Sức khỏe","Quần áo","Ăn uống","Đi lại","Khác"};
+        long[] dataSpent = new long[NameSpent.size()];
+
         Arrays.fill(dataSpent,0);
         for(int i = 0;i<tableData.size();++i){
             String str = tableData.get(i).getIDservice().toString();
@@ -131,7 +137,7 @@ public class BudgetFragment extends Fragment {
         }
         for(int i = 0;i < dataSpent.length;++i){
             if(dataSpent[i] != 0){
-                entries.add(new PieEntry(dataSpent[i],NameSpent[i]));
+                entries.add(new PieEntry(dataSpent[i],NameSpent.get(i)));
             }
         }
         adapterBudget = new AdapterBudget(getContext(), (ArrayList<PieEntry>) entries);
@@ -353,6 +359,9 @@ public class BudgetFragment extends Fragment {
     private void Init() {
         simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         sqLiteManagement = new SQLiteManagement(getContext());
+        serviceCollects = (ArrayList<ServiceCollect>) sqLiteManagement.getDataServiceCollect();
+        serviceSpents = (ArrayList<ServiceSpent>) sqLiteManagement.getDataServiceSpent();
+        getDataService();
         buttonIncome = view.findViewById(R.id.budget_textIncome);
         buttonExpnece = view.findViewById(R.id.budget_textExpence);
         selectedDate = view.findViewById(R.id.budget_textSelectedDate);
@@ -368,5 +377,21 @@ public class BudgetFragment extends Fragment {
         listView = view.findViewById(R.id.budget_listview);
         buttonIncome.setBackgroundColor(getResources().getColor(R.color.blue80));
         checkButton = true;
+
+    }
+    private void getDataService(){
+        NameCollect = new ArrayList<>();
+        NameSpent = new ArrayList<>();
+        NameCollect.add("");
+        NameSpent.add("");
+        for(int i = 0;i<serviceCollects.size();++i){
+            NameCollect.add(serviceCollects.get(i).getNameservice().toString());
+        }
+        for(int i = 0;i<serviceSpents.size();++i){
+            NameSpent.add(serviceSpents.get(i).getNameservice().toString());
+        }
+        for(int i = 0;i<NameCollect.size();++i){
+            Log.e("SERVICE",NameCollect.get(i) + " ");
+        }
     }
 }

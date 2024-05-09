@@ -3,6 +3,7 @@ package com.example.quanlichitieulite;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -47,7 +48,7 @@ public class AddPlanMoney extends AppCompatActivity {
     private AdapterSpinnerDate adapterSpinnerDate;
     private DecimalFormat df = new DecimalFormat("###,###,###.## VND");
     private CategoryAdapterExpence categoryAdapterExpence;
-    private String IDservice;
+    private int IDservice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,16 +125,18 @@ public class AddPlanMoney extends AppCompatActivity {
                 String formatDateEnd = sdf.format(dateEnd);
                 String strMoney = money.getText().toString();
                 String strContent = content.getText().toString();
-                if(strMoney.length() > 0 && strContent.length() > 0){
-
-//                        PlanMonney.addPlanMoney(id,strMoney,formatDateStart,formatDateEnd,strContent);
+                if(strMoney.length() > 0){
                     sqLiteManagement.InsertPlanMoney(2,IDservice,Long.valueOf(strMoney),formatDateStart,formatDateEnd,strContent);
                     Toast.makeText(AddPlanMoney.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AddPlanMoney.this,PlanMoney.class);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(AddPlanMoney.this, "False", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AddPlanMoney.this);
+                    builder.setMessage("Bạn chưa nhập đầy đủ thông tin");
+                    builder.setNegativeButton("Ok", null);
+                    AlertDialog alert = builder.create();
+                    alert.show();
                 }
             }
         });
@@ -145,7 +148,6 @@ public class AddPlanMoney extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 strSpinner = listSpiner.get(position);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -164,8 +166,6 @@ public class AddPlanMoney extends AppCompatActivity {
         });
     }
 
-
-
     private void Init() {
         sqLiteManagement = new SQLiteManagement(this);
 //        buttonIncome = findViewById(R.id.addPlanMoney_buttonIncome);
@@ -181,9 +181,6 @@ public class AddPlanMoney extends AppCompatActivity {
         serviceappList = sqLiteManagement.getDataServiceSpent();
         categoryAdapterExpence = new CategoryAdapterExpence(this,R.layout.item_selected,serviceappList);
         spinnerService.setAdapter(categoryAdapterExpence);
-        for(int i = 0;i<serviceappList.size();++i){
-            Log.e("DATA",serviceappList.get(i).getIDservicespent());
-        }
 
         listSpiner = new ArrayList<>();
         listSpiner.add("1 tuần");
@@ -192,7 +189,6 @@ public class AddPlanMoney extends AppCompatActivity {
         listSpiner.add("6 tháng");
         listSpiner.add("1 năm");
         listSpiner.add("2 năm");
-
         adapterSpinnerDate = new AdapterSpinnerDate(this,R.layout.item_selected,listSpiner);
         spinner.setAdapter(adapterSpinnerDate);
     }

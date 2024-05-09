@@ -11,6 +11,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -25,6 +26,8 @@ import java.util.Date;
 public class Home extends AppCompatActivity {
     private ViewPager2 viewPager;
     private BottomNavigationView bottomNavigationView;
+    private SharedPreferences sharedPreferences;
+    private boolean changePass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class Home extends AppCompatActivity {
         Init();
         even_Click();
         even_bottomNavigator();
+        changePage();
     }
 
 
@@ -84,14 +88,20 @@ public class Home extends AppCompatActivity {
     }
 
     private void Init() {
+        sharedPreferences = sharedPreferences = getSharedPreferences("loginData",MODE_PRIVATE);
+        changePass = sharedPreferences.getBoolean("passCode",false);
         viewPager = findViewById(R.id.view_page);
         viewPager.setUserInputEnabled(false);
+        viewPager.setPageTransformer(null);
         bottomNavigationView = findViewById(R.id.bottom_navigator);
-//        pushNotification();
 
+//        pushNotification();
     }
 
-    private int getNotificationID(){
-        return (int) new Date().getTime();
+    public void changePage(){
+        if(changePass){
+            viewPager.setCurrentItem(3);
+            bottomNavigationView.getMenu().findItem(R.id.menu_profile).setChecked(true);
+        }
     }
 }
