@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class PlanMoney extends AppCompatActivity {
     private LinearLayout add,list,notification;
-    private ImageButton imageButton;
+    private ImageView imageButton;
     private ListView listView;
     private SQLiteManagement sqLiteManagement;
     private ArrayList<PlanMonney> arrayList;

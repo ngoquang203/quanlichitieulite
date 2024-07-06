@@ -5,9 +5,5 @@
         android:top="@dimen/regular3"
         android:bottom="@dimen/regular3"
         android:right="10dp"/>
-    <solid android:color="@color/light80"/>
     <corners android:radius="@dimen/regular2" />
-    <stroke android:width="2dp"
-        android:color="@color/light60"/>
-
 </shape>

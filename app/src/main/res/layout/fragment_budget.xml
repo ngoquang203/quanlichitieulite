@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".Frament.BudgetFragment"
     android:orientation="vertical"
-    android:background="@color/dark">
+    android:theme="@style/SCREEN">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,8 +20,7 @@
             android:text="Thu tiền"
             android:paddingVertical="@dimen/regular3"
             android:textSize="@dimen/title2"
-            android:fontFamily="@font/opensans"
-            android:textColor="@color/light"/>
+            android:fontFamily="@font/opensans"/>
         <TextView
             android:id="@+id/budget_textExpence"
             android:layout_weight="1"
@@ -31,7 +30,6 @@
             android:text="Chi tiền"
             android:paddingVertical="@dimen/regular3"
             android:textSize="@dimen/title2"
-            android:textColor="@color/light"
             android:fontFamily="@font/opensans"/>
     </LinearLayout>
     <TextView
@@ -39,12 +37,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:drawableEnd="@drawable/arrowdown"
+        android:drawableEnd="@drawable/down_arrow"
+        style="@style/Base.Widget.AppCompat.TextView.NEWTEXTVIEW"
         android:text="Date"
         android:fontFamily="@font/opensans"
         android:textSize="@dimen/title2"
-        android:paddingLeft="@dimen/regular1"
-        android:textColor="@color/light"/>
+        android:paddingLeft="@dimen/regular1"/>
 
 
     <ScrollView
@@ -98,7 +96,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/regular2"
             android:textSize="@dimen/regular2"
-            android:textColor="@color/light"
             android:fontFamily="@font/opensans"
             android:text="Tổng số tiền"/>
         <TextView
@@ -108,7 +105,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans"
-            android:textColor="@color/light"
             android:textSize="@dimen/regular2"
             android:text="$$$$$$"/>
     </LinearLayout>

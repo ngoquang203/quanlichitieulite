@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ import java.util.List;
 
 public class ManagementPlanMoney extends AppCompatActivity {
     private SQLiteManagement sqLiteManagement;
-    private ImageButton imageButton;
+    private ImageView imageButton;
     private ListView listView;
     private ArrayList<PlanMonney> arrayList;
     private SharedPreferences sharedPreferences;

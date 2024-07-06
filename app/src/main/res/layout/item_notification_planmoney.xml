@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
+    android:theme="@style/SCREEN"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_border"
         android:layout_marginTop="@dimen/regular2"
-        android:backgroundTint="@color/dark10"
+        android:theme="@style/CardView.NewCardView"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,6 @@
                 android:layout_weight="1"
                 android:text="Kế hoạch :"
                 android:textSize="@dimen/regular1"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
             <TextView
                 android:id="@+id/planMoney_notification_nameService"
@@ -32,7 +31,6 @@
                 android:text="Sinh hoat"
                 android:layout_marginRight="@dimen/regular2"
                 android:textSize="@dimen/regular1"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
         </LinearLayout>
         <LinearLayout
@@ -45,7 +43,6 @@
                 android:layout_weight="1"
                 android:text="Thời gian bắt đầu :"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
             <TextView
                 android:id="@+id/planMoney_notification_dateStart"
@@ -56,7 +53,6 @@
                 android:text="1/1/2024"
                 android:layout_marginRight="@dimen/regular2"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
         </LinearLayout>
         <LinearLayout
@@ -69,7 +65,6 @@
                 android:layout_weight="1"
                 android:text="Thời gian kết thúc :"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
             <TextView
                 android:id="@+id/planMoney_notification_dateEnd"
@@ -80,7 +75,6 @@
                 android:text="1/1/2024"
                 android:layout_marginRight="@dimen/regular2"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
         </LinearLayout>
         <LinearLayout
@@ -93,7 +87,6 @@
                 android:layout_weight="1"
                 android:text="Trạng thái :"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -103,7 +96,6 @@
                 android:text="Đã vượt quá kế hoạch thu chi"
                 android:layout_marginRight="@dimen/regular2"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
         </LinearLayout>
     </LinearLayout>

@@ -5,13 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".Frament.Onboarding3Fragment"
     android:orientation="vertical"
-    android:background="@color/dark">
+    android:theme="@style/SCREEN">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/dark"
         android:padding="@dimen/title2">
         <ImageView
             android:layout_marginTop="@dimen/title2"
@@ -27,15 +26,13 @@
             android:text="Lập kế hoạch trước"
             android:textSize="@dimen/title2"
             android:textStyle="bold"
-            android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/light"/>
+            android:fontFamily="@font/opensans_bold"/>
         <TextView
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Thiết lập ngân sách của bạn cho từng danh mục để bạn có thể kiểm soát"
             android:textSize="@dimen/regular2"
-            android:textColor="@color/light10"
             android:fontFamily="@font/opensans_itatic"/>
     </LinearLayout>
 

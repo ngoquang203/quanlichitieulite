@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingApp"
+    android:theme="@style/SCREEN"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp">
+        <ImageView
+            android:id="@+id/dialogSetting_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/listview_erron"
+            android:src="@drawable/left"
+            style="@style/Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/regular2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cài đặt"
+            android:textSize="@dimen/title2"
+            android:fontFamily="@font/opensans_bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/regular2"
+        android:layout_marginHorizontal="@dimen/regular3">
+        <LinearLayout
+            android:id="@+id/dialogSetting_changeInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_border"
+            android:theme="@style/CardView.NewCardView"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="Thông tin"
+                    android:textSize="@dimen/regular1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Thay đổi thông tin cá nhân"
+                    android:textSize="@dimen/regular2" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/listview_erron"
+                android:src="@drawable/profile"
+                style="@style/Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW2"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dialogSetting_changePass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_border"
+            android:theme="@style/CardView.NewCardView"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/regular2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="Mật khẩu"
+                    android:textSize="@dimen/regular1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Thay đổi mật khẩu"
+                    android:textSize="@dimen/regular2" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/listview_erron"
+                android:src="@drawable/password"
+                style="@style/Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW2"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_border"
+            android:theme="@style/CardView.NewCardView"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/regular2"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="Chủ đề"
+                    android:textSize="@dimen/regular1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Thay đổi chủ đề sáng hoặc tối"
+                    android:textSize="@dimen/regular2" />
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/dialogSetting_theme"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/app_name"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

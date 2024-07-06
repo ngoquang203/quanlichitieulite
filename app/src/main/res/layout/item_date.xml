@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/dark">
+    android:theme="@style/SCREEN">
     <TextView
         android:id="@+id/item_textDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_border"
-        android:backgroundTint="@color/dark10"
+        style="@style/CardView.NewCardView"
+        android:paddingVertical="@dimen/regular3"
+        android:paddingLeft="@dimen/regular3"
         android:text="1 thang"
-        android:textColor="@color/light"
         android:fontFamily="@font/opensans"/>
     <TextView
         android:layout_width="match_parent"

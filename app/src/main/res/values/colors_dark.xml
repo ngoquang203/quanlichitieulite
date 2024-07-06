@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // light theme
+    <color name="Red_Dark">#FF453A</color>
+    <color name="Orange_Dark">#FF9F0A</color>
+    <color name="Yellow_Dark">#FFD60A</color>
+    <color name="Green_Dark">#32D74B</color>
+    <color name="Teal_Dark">#64D2FF</color>
+    <color name="Blue_Dark">#0A84FF</color>
+    <color name="Indigo_Dark">#5E5CE6</color>
+    <color name="Purple_Dark">#BF5AF2</color>
+    <color name="Pink_Dark">#FF375F</color>
+
+    <color name="Gray_Dark">#8E8E93</color>
+    <color name="Gray2_Dark">#636366</color>
+    <color name="Gray3_Dark">#48484A</color>
+    <color name="Gray4_Dark">#3A3A3C</color>
+    <color name="Gray5_Dark">#2C2C2E</color>
+    <color name="Gray6_Dark">#1C1C1E</color>
+
+    <color name="Primary_Dark">#FFFFFF</color>
+    <color name="Secondary_Dark">#EBEBF5</color>
+    <color name="Tertiary_Dark">#EBEBF5</color>
+    <color name="Quarternary_Dark">#EBEBF5</color>
+
+    <color name="Main_Dark">#000000</color>
+    <color name="Surface1_Dark">#161616</color>
+    <color name="Surface2_Dark">#FF181b3a</color>
+    <color name="Stroke_Dark">#3A3A3C</color>
+</resources>

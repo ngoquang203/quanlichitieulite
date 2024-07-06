@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // light theme
+    <color name="Red">#FF3B30</color>
+    <color name="Orange">#FF9500</color>
+    <color name="Yellow">#FFCC00</color>
+    <color name="Green">#34C759</color>
+    <color name="Teal">#5AC8FA</color>
+    <color name="Blue">#007AFF</color>
+    <color name="Indigo">#5856D6</color>
+    <color name="Purple">#AF52DE</color>
+    <color name="Pink">#FF2D55</color>
+
+    <color name="Gray">#8E8E93</color>
+    <color name="Gray2">#AEAEB2</color>
+    <color name="Gray3">#C7C7CC</color>
+    <color name="Gray4">#D1D1D6</color>
+    <color name="Gray5">#E5E5EA</color>
+    <color name="Gray6">#F2F2F7</color>
+
+    <color name="Primary">#000000</color>
+    <color name="Secondary">#3C3C43</color>
+    <color name="Tertiary">#3C3C43</color>
+    <color name="Quarternary">#3C3C43</color>
+
+    <color name="Main">#FFFFFF</color>
+    <color name="Surface1">#FAFAFA</color>
+    <color name="Surface2">#F5F5F5</color>
+    <color name="Stroke">#D1D1D6</color>
+</resources>

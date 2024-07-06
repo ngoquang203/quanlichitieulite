@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
+    android:theme="@style/SCREEN"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_border"
-        android:backgroundTint="@color/dark10"
+        android:theme="@style/CardView.NewCardView"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +22,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"
                 android:textSize="@dimen/regular2"/>
             <TextView
@@ -30,7 +29,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Suptext"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"
                 android:textSize="@dimen/regular3"/>
         </LinearLayout>

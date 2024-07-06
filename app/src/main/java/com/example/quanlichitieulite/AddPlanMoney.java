@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +40,7 @@ public class AddPlanMoney extends AppCompatActivity {
     private Spinner spinner,spinnerService;
     private TextInputEditText money;
     private TextInputEditText content;
-    private ImageButton imageButton;
+    private ImageView imageButton;
     private String strSpinner;
     private SharedPreferences sharedPreferences;
     private ArrayList<String> listSpiner;

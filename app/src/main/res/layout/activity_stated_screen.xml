@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".StatedScreen"
     android:orientation="vertical"
-    android:background="@color/dark"
+    android:theme="@style/SCREEN"
     android:padding="@dimen/regular2">
     <ScrollView
         android:layout_width="match_parent"
@@ -29,7 +29,6 @@
                 android:layout_height="wrap_content"
                 android:text="Xin chào"
                 android:textSize="@dimen/title2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans_bold"/>
             <TextView
                 android:gravity="center"
@@ -37,7 +36,6 @@
                 android:layout_height="wrap_content"
                 android:text="Hãy nhập tên của bạn để bắt đầu phần mềm"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light10"
                 android:fontFamily="@font/opensans"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -49,11 +47,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input"
-                    android:backgroundTint="@color/dark10"
+                    style="@style/BACKGROUNDTINT"
                     android:ems="10"
                     android:hint="Nhập tên của bạn"
-                    android:textColorHint="@color/light10"
-                    android:textColor="@color/light"
                     android:fontFamily="@font/opensans"
                     android:inputType="text"
                     android:textSize="@dimen/title3"
@@ -67,8 +63,7 @@
                 android:layout_marginTop="@dimen/regular2"
                 android:text="0 VND"
                 android:textSize="@dimen/regular2"
-                android:fontFamily="@font/opensans"
-                android:textColor="@color/light"/>
+                android:fontFamily="@font/opensans"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,11 +73,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input"
-                    android:backgroundTint="@color/dark10"
+                    style="@style/BACKGROUNDTINT"
                     android:ems="10"
                     android:hint="Nhập tên số tiền hiện có"
-                    android:textColorHint="@color/light10"
-                    android:textColor="@color/light"
                     android:fontFamily="@font/opensans"
                     android:inputType="numberDecimal"
                     android:textSize="@dimen/title3"

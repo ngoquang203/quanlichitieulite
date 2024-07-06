@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@color/dark">
+    android:theme="@style/SCREEN">
     <TextView
         android:id="@+id/item_service_title"
         android:layout_width="wrap_content"
@@ -13,7 +13,6 @@
         android:gravity="start"
         android:paddingLeft="@dimen/regular2"
         android:text="Title"
-        android:textColor="@color/light"
         android:fontFamily="@font/opensans_bold"
         android:textSize="@dimen/regular1"/>
     <TextView
@@ -25,7 +24,6 @@
         android:layout_weight="1"
         android:paddingRight="@dimen/regular2"
         android:text="money"
-        android:textColor="@color/light"
         android:fontFamily="@font/opensans"
         android:textSize="@dimen/regular1"/>
 </LinearLayout>

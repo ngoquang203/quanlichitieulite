@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
+    android:theme="@style/SCREEN"
     android:orientation="vertical"
     android:padding="@dimen/regular2">
     <LinearLayout
@@ -12,12 +12,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <ImageButton
+        <ImageView
             android:id="@+id/detialCategory_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/arrowleft"
-            android:background="@color/dark"/>
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/listview_erron"
+            android:src="@drawable/left"
+            style="@style/Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW"/>
         <TextView
             android:gravity="start"
             android:layout_weight="1"
@@ -25,16 +26,15 @@
             android:layout_height="wrap_content"
             android:text="Thông tin chi tiết"
             android:textSize="@dimen/title2"
-            android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/light"/>
+            android:fontFamily="@font/opensans_bold"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/background_listview"
-        android:backgroundTint="@color/dark10"
+        android:background="@drawable/background_border"
+        android:theme="@style/CardView.NewCardView"
         android:layout_marginTop="@dimen/regular2">
         <TextView
             android:gravity="center"
@@ -42,7 +42,6 @@
             android:layout_height="wrap_content"
             android:text="Số tiền giao dịch"
             android:textSize="@dimen/regular1"
-            android:textColor="@color/light"
             android:fontFamily="@font/opensans_bold"/>
         <TextView
             android:id="@+id/detailCategory_money"
@@ -50,7 +49,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="+1000"
-            android:textColor="@color/light"
             android:textSize="@dimen/regular2"
             android:fontFamily="@font/opensans_bold"/>
 
@@ -59,8 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/background_listview"
-        android:backgroundTint="@color/dark10"
+        android:background="@drawable/background_border"
+        android:theme="@style/CardView.NewCardView"
         android:layout_marginTop="@dimen/regular2">
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,7 +69,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Loại giao dịch"
-                android:textColor="@color/light"
                 android:textSize="@dimen/regular2"
                 android:fontFamily="@font/opensans"/>
             <TextView
@@ -81,8 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="Tiền sinh hoạt"
                 android:textSize="@dimen/regular2"
-                android:fontFamily="@font/opensans"
-                android:textColor="@color/light"/>
+                android:fontFamily="@font/opensans"/>
         </LinearLayout>
         <TextView
             android:id="@+id/detailCategory_content"
@@ -92,8 +88,7 @@
             android:text="Tiền nhà"
             android:textSize="@dimen/regular2"
             android:fontFamily="@font/opensans"
-            android:layout_marginVertical="7dp"
-            android:textColor="@color/light"/>
+            android:layout_marginVertical="7dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,7 +97,6 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/light"
                 android:text="Ngày giao dịch"
                 android:textSize="@dimen/regular2"
                 android:fontFamily="@font/robuto_font"/>
@@ -113,7 +107,6 @@
                 android:layout_height="wrap_content"
                 android:text="01/03/2024, 01:09"
                 android:textSize="@dimen/regular2"
-                android:textColor="@color/light"
                 android:fontFamily="@font/opensans"/>
         </LinearLayout>
         <LinearLayout
@@ -125,7 +118,6 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/light"
                 android:text="Số dư"
                 android:textSize="@dimen/regular2"
                 android:fontFamily="@font/opensans"/>
@@ -135,7 +127,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="1000"
-                android:textColor="@color/light"
                 android:textSize="@dimen/regular2"
                 android:fontFamily="@font/opensans"/>
         </LinearLayout>

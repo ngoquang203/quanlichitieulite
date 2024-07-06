@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frament.TransactionFragment"
     android:orientation="vertical"
-    android:background="@color/dark10">
+    android:theme="@style/SCREEN">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,15 +21,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/title2"
+            android:background="@color/blue80"
             android:fontFamily="@font/opensans_bold"
             android:text="Lịch sử"
-            android:textColor="@color/light100"
             android:gravity="center"/>
         <android.widget.SearchView
             android:id="@+id/transition_searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light20"
+            android:theme="@style/ThemeOverlay.SearchView"
             android:queryHint="Tìm kiếm"
             android:iconifiedByDefault="false"/>
 
@@ -43,7 +43,6 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:textColor="@color/light"
             android:layout_height="wrap_content"
             android:text="Không có dữ liệu"
             android:visibility="gone"/>
@@ -51,9 +50,7 @@
             android:id="@+id/transiton_viewpager2"
             android:layout_width="match_parent"
             android:contentDescription="@string/listview_erron"
-            android:backgroundTint="@color/dark"
             android:layout_height="match_parent"
-            android:background="@color/dark"
             />
     </LinearLayout>
 

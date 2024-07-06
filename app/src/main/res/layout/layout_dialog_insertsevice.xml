@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_input"
-    android:backgroundTint="@color/dark"
     android:orientation="vertical"
-    android:paddingHorizontal="@dimen/regular2">
+    android:paddingHorizontal="@dimen/regular2"
+    android:theme="@style/SCREEN">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,9 +14,8 @@
         android:fontFamily="@font/opensans"
         android:gravity="center"
         android:text="Nhập dịch vụ muốn thêm"
-        android:textColor="@color/light"
         android:textSize="@dimen/regular1"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -31,12 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/background_input"
-            android:backgroundTint="@color/dark10"
+            style="@style/BACKGROUNDTINT"
             android:ems="10"
             android:hint="Nhập dịch vụ bạn muốn thêm"
             android:inputType="text"
-            android:textColor="@color/light"
-            android:textColorHint="@color/light"
             android:textSize="@dimen/title3" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -51,12 +47,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/background_input"
-            android:backgroundTint="@color/dark10"
+            style="@style/BACKGROUNDTINT"
             android:ems="10"
             android:hint="Mô tả về dịch vụ"
             android:inputType="text"
-            android:textColor="@color/light"
-            android:textColorHint="@color/light"
             android:textSize="@dimen/title3" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,6 +62,7 @@
         android:background="@drawable/background_input"
         android:fontFamily="@font/opensans_bold"
         android:text="Thêm"
+        android:textColor="@color/Primary_Dark"
         android:textSize="@dimen/title3"
         android:theme="@style/Base.Theme.ThemeBlue" />
 </LinearLayout>

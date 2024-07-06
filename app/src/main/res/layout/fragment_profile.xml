@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".Frament.ProfileFragment"
     android:orientation="vertical"
-    android:background="@color/dark">
+    android:theme="@style/SCREEN">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -23,13 +23,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
+                android:background="@color/blue80"
                 android:paddingLeft="@dimen/title2">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tên tài khoản"
+                    android:background="@color/blue80"
                     android:textSize="@dimen/regular2"
-                    android:textColor="@color/light"
                     android:fontFamily="@font/opensans"/>
 
                 <TextView
@@ -38,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans_bold"
                     android:text="Ngo Quang"
-                    android:textColor="@color/light"
+                    android:background="@color/blue80"
                     android:textSize="@dimen/title2"/>
             </LinearLayout>
         </LinearLayout>
@@ -52,25 +53,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/background_border"
-                android:backgroundTint="@color/dark10"
+                style="@style/Base.Widget.AppCompat.TextView.NEWTEXTVIEW"
                 android:paddingHorizontal="@dimen/regular2"
                 android:text="Cài đặt"
-                android:drawableRight="@drawable/settings"
-                android:textColor="@color/light"
+                android:drawableRight="@drawable/setting"
                 android:textSize="@dimen/regular2"
-                android:gravity="start"/>
+                android:gravity="center_vertical"/>
             <LinearLayout
                 android:layout_marginTop="@dimen/regular2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/background_border"
-                android:backgroundTint="@color/dark10">
+                android:theme="@style/CardView.NewCardView">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Thông tin cá nhân"
-                    android:textColor="@color/light"
                     android:textSize="@dimen/regular1"
                     android:gravity="start"
                     android:fontFamily="@font/opensans_bold"/>
@@ -86,7 +85,6 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/opensans"
                         android:text="Tên tài khoản : "
-                        android:textColor="@color/light"
                         android:textSize="@dimen/regular2" />
                     <TextView
                         android:id="@+id/profile_nameInfo"
@@ -96,7 +94,6 @@
                         android:gravity="end"
                         android:text="Ngo Quang"
                         android:textSize="@dimen/regular2"
-                        android:textColor="@color/light"
                         android:fontFamily="@font/opensans"
                         android:textStyle="bold"/>
                 </LinearLayout>
@@ -112,7 +109,6 @@
                         android:layout_height="wrap_content"
                         android:text="Giới tính : "
                         android:textSize="@dimen/regular2"
-                        android:textColor="@color/light"
                         android:fontFamily="@font/opensans"/>
                     <TextView
                         android:id="@+id/profile_sexInfo"
@@ -122,7 +118,6 @@
                         android:gravity="end"
                         android:text="Nam"
                         android:textSize="@dimen/regular2"
-                        android:textColor="@color/light"
                         android:fontFamily="@font/opensans"
                         android:textStyle="bold"/>
                 </LinearLayout>
@@ -137,7 +132,6 @@
                         android:layout_height="wrap_content"
                         android:text="Email : "
                         android:textSize="@dimen/regular2"
-                        android:textColor="@color/light"
                         android:fontFamily="@font/opensans"/>
                     <TextView
                         android:id="@+id/profile_emailInfo"
@@ -147,7 +141,6 @@
                         android:gravity="end"
                         android:text="ngoqaung3782@gmail.com"
                         android:textSize="@dimen/regular2"
-                        android:textColor="@color/light"
                         android:fontFamily="@font/opensans"
                         android:textStyle="bold"/>
                 </LinearLayout>

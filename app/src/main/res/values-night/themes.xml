@@ -1,8 +1,52 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.QuanlichitieuLite" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/dark10</item>
-        <item name="colorPrimary">@color/dark10</item>
-        <item name="colorPrimaryDark">@color/dark10</item>
+        <item name="android:statusBarColor">@color/Main</item>
+        <item name="background">@color/Main</item>
+        <item name="android:textColor">@color/Primary</item>
+        <item name="colorPrimary">@color/Primary</item>
+        <item name="android:textColorHint">@color/Secondary</item>
+
+    </style>
+
+    <style name="SCREEN">
+        <item name="android:statusBarColor">@color/Main</item>
+        <item name="android:background">@color/Main</item>
+
+    </style>
+    <style name="BACKGROUNDTINT">
+        <item name="backgroundTint">@color/Surface2</item>
+    </style>
+    <style name="BACKGROUND">
+        <item name="cardBackgroundColor">@color/Surface2</item>
+    </style>
+    <style name="Base.Widget.AppCompat.CompoundButton.CheckBox.NewCheckBox">
+        <item name="android:textColor">@color/Primary</item>
+    </style>
+
+    <style name="CardView.NewCardView">
+        <item name="android:backgroundTint">@color/Surface2</item>
+    </style>
+    <style name="Base.Widget.Material3.BottomNavigationView.NewNavigation">
+        <item name="itemBackground">@color/Main</item>
+    </style>
+    <style name="Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW">
+        <item name="android:backgroundTint">@color/Main</item>
+        <item name="android:tint">@color/Primary</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW2" parent="BACKGROUNDTINT">
+        <item name="android:backgroundTint">@color/Main</item>
+        <item name="android:popupBackground">@android:color/transparent</item>
+        <item name="android:tint">@color/Primary</item>
+    </style>
+    <style name="Base.Widget.AppCompat.TextView.NEWTEXTVIEW">
+        <item name="backgroundTint">@color/Surface2</item>
+        <item name="drawableTint">@color/dark</item>
+    </style>
+
+    
+    <style name="ThemeOverlay.SearchView" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:editTextColor">@color/Primary</item>
+        <item name="android:textColorHint">@color/Primary</item>
     </style>
 </resources>

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.ArrayList;
 
@@ -37,6 +38,7 @@ public class PassCodeView extends AppCompatActivity implements View.OnClickListe
         selectedActivity = sharedPreferences.getBoolean("login",false);
         PasscodeData = sharedPreferences.getString("passcode","000000");
         changPassCode = sharedPreferences.getBoolean("passCode",false);
+
         numberList = new ArrayList<>();
         view01 = findViewById(R.id.passcode_view01);
         view02 = findViewById(R.id.passcode_view02);

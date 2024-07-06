@@ -3,19 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/SCREEN"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frament.MainFragment"
-    android:background="@color/dark"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:backgroundTint="@color/green">
+        android:padding="@dimen/regular3">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/title2"
-            android:layout_marginTop="@dimen/title2"
             android:orientation="horizontal">
 
             <TextView
@@ -26,8 +25,7 @@
                 android:gravity="center"
                 android:text="Xin chào, "
                 android:textSize="@dimen/title3"
-                android:textStyle="bold"
-                android:textColor="@color/light100"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/main_name"
@@ -38,151 +36,147 @@
                 android:gravity="center"
                 android:text="Tên"
                 android:textSize="@dimen/title3"
-                android:textStyle="bold"
-                android:textColor="@color/light100"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/title2"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/background_border"
-            android:backgroundTint="@color/dark10"
-            android:orientation="horizontal"
-            android:paddingVertical="5dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/notosans_font"
-                    android:gravity="start"
-                    android:text="Số dư tài khoản"
-                    android:textColor="@color/light"
-                    android:textSize="@dimen/regular2" />
-
-                <TextView
-                    android:id="@+id/main_sumNow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:fontFamily="@font/notosans_font"
-                    android:text="$9400"
-                    android:textColor="@color/light"
-                    android:autoSizeMaxTextSize="@dimen/title2"
-                    android:autoSizeMinTextSize="@dimen/regular2"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/dark20"
-                android:layout_marginLeft="@dimen/regular2"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="@dimen/regular2">
-                <Spinner
-                    android:id="@+id/main_textDate"
+                android:background="@drawable/background_border"
+                style="@style/CardView.NewCardView"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    style="@style/CardView.NewCardView"
+                    android:paddingLeft="@dimen/regular3"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/notosans_font"
+                        style="@style/CardView.NewCardView"
+                        android:gravity="start"
+                        android:text="Số dư tài khoản"
+                        android:textSize="@dimen/regular2" />
+
+                    <TextView
+                        android:id="@+id/main_sumNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        style="@style/CardView.NewCardView"
+                        android:fontFamily="@font/notosans_font"
+                        android:text="$9400"
+                        android:autoSizeMaxTextSize="@dimen/title2"
+                        android:autoSizeMinTextSize="@dimen/regular2"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/dark20"
+                    android:layout_marginLeft="@dimen/regular2"/>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:background="@drawable/background_border"
-                    android:backgroundTint="@color/dark10"
-                    android:paddingVertical="0dp"
-                    android:paddingHorizontal="10dp"
-                    android:textColor="@color/light"
-                    android:fontFamily="@font/robuto_font"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="wrap_content"
+                    style="@style/CardView.NewCardView"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/regular2">
+                    <Spinner
+                        android:id="@+id/main_textDate"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/background_nobutton"
-                        android:backgroundTint="@color/light100"
-                        android:src="@drawable/frame_blue" />
-
+                        android:gravity="center"
+                        android:background="@drawable/background_border"
+                        style="@style/BACKGROUNDTINT"
+                        android:paddingVertical="0dp"
+                        android:paddingHorizontal="10dp"
+                        android:fontFamily="@font/robuto_font"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="10dp">
-
-                        <TextView
+                        android:theme="@style/CardView.NewCardView"
+                        android:orientation="horizontal">
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosans_font"
-                            android:text="Tiền thu"
-                            android:textColor="@color/green100"
-                            android:textSize="@dimen/regular2" />
+                            android:layout_gravity="center"
+                            android:background="@drawable/background_nobutton"
+                            android:src="@drawable/frame_blue" />
 
-                        <TextView
-                            android:id="@+id/main_sumCollect"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:autoSizeMaxTextSize="@dimen/title2"
-                            android:fontFamily="@font/notosans_font"
-                            android:text="$5000"
-                            android:textColor="@color/green100"
-                            android:textStyle="bold" />
+                            android:orientation="vertical"
+                            android:paddingLeft="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosans_font"
+                                android:text="Tiền thu"
+                                android:textColor="@color/green100"
+                                android:textSize="@dimen/regular2" />
+
+                            <TextView
+                                android:id="@+id/main_sumCollect"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:autoSizeMaxTextSize="@dimen/title2"
+                                android:fontFamily="@font/notosans_font"
+                                android:text="$5000"
+                                android:textColor="@color/green100"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/background_nobutton"
-                        android:backgroundTint="@color/light100"
-                        android:src="@drawable/frame_red" />
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingLeft="10dp">
+                        android:theme="@style/CardView.NewCardView"
+                        android:orientation="horizontal">
 
-                        <TextView
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/notosans_font"
-                            android:text="Tiền chi"
-                            android:textColor="@color/red100"
-                            android:textSize="@dimen/regular2" />
+                            android:layout_gravity="center"
+                            android:background="@drawable/background_nobutton"
+                            android:src="@drawable/frame_red" />
 
-                        <TextView
-                            android:id="@+id/main_sumSpent"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:autoSizeMaxTextSize="@dimen/title2"
-                            android:fontFamily="@font/notosans_font"
-                            android:text="$5000"
-                            android:textColor="@color/red100"
-                            android:textStyle="bold" />
+                            android:orientation="vertical"
+                            android:paddingLeft="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosans_font"
+                                android:text="Tiền chi"
+                                android:textColor="@color/red100"
+                                android:textSize="@dimen/regular2" />
+
+                            <TextView
+                                android:id="@+id/main_sumSpent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:autoSizeMaxTextSize="@dimen/title2"
+                                android:fontFamily="@font/notosans_font"
+                                android:text="$5000"
+                                android:textColor="@color/red100"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/blue"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -190,28 +184,29 @@
             android:text="Dịch vụ"
             android:fontFamily="@font/robuto_font"
             android:textSize="@dimen/regular2"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/light"/>
+            android:layout_marginLeft="15dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_border"
+            style="@style/CardView.NewCardView"
             android:weightSum="3"
             android:orientation="vertical"
             android:layout_marginHorizontal="10dp"
-            android:backgroundTint="@color/dark10"
             android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
+                style="@style/CardView.NewCardView"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:id="@+id/main_addIncomeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/CardView.NewCardView"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:gravity="center">
@@ -219,13 +214,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/light20"
                         android:paddingVertical="15dp"
                         android:paddingHorizontal="20dp">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/frame_blue"
+                            style="@style/CardView.NewCardView"
                             android:contentDescription="@string/listview_erron"/>
                     </LinearLayout>
 
@@ -233,8 +228,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/CardView.NewCardView"
                         android:text="Thêm thu"
-                        android:textColor="@color/light"
                         android:textSize="@dimen/regular3"
                         android:fontFamily="@font/opensans"/>
                 </LinearLayout>
@@ -243,21 +238,21 @@
                     android:id="@+id/main_addExpenceButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/CardView.NewCardView"
                     android:layout_weight="1"
                     android:layout_marginHorizontal="10dp"
-                    android:backgroundTint="@color/blue10"
                     android:orientation="vertical"
                     android:gravity="center">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/light20"
                         android:paddingVertical="15dp"
                         android:paddingHorizontal="20dp">
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            style="@style/CardView.NewCardView"
                             android:src="@drawable/frame_red"
                             android:contentDescription="@string/listview_erron"/>
                     </LinearLayout>
@@ -265,8 +260,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thêm chi"
-                        android:textColor="@color/light"
                         android:textSize="@dimen/regular3"
+                        style="@style/CardView.NewCardView"
                         android:fontFamily="@font/opensans"/>
                 </LinearLayout>
 
@@ -275,8 +270,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/CardView.NewCardView"
                     android:layout_marginHorizontal="10dp"
-                    android:backgroundTint="@color/blue10"
                     android:orientation="vertical"
                     android:gravity="center"
                     android:layout_gravity="center">
@@ -284,7 +279,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/light20"
                         android:paddingVertical="17dp"
                         android:paddingHorizontal="19dp">
                         <ImageView
@@ -292,16 +286,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/wallet_3"
+                            style="@style/CardView.NewCardView"
                             android:contentDescription="@string/listview_erron"/>
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="75dp"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans"
                         android:gravity="center"
+                        style="@style/CardView.NewCardView"
                         android:text="Lập kế hoạch"
-                        android:textColor="@color/light"
-                        android:textSize="@dimen/regular3"
-                        android:fontFamily="@font/opensans"/>
+                        android:textSize="@dimen/regular3" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -314,23 +310,22 @@
             android:text="Chi tiêu trong hôm nay"
             android:fontFamily="@font/robuto_font"
             android:textSize="@dimen/regular2"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/light"/>
+            android:layout_marginLeft="15dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_partboder"
+            style="@style/CardView.NewCardView"
             android:layout_marginHorizontal="10dp"
-            android:backgroundTint="@color/dark"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/main_textViewErron"
                 android:gravity="center"
                 android:layout_weight="1"
+                style="@style/CardView.NewCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Không có chi tiêu trong hôm nay"
-                android:textColor="@color/light"
                 android:visibility="visible"/>
             <ListView
                 android:id="@+id/main_viewpager2"

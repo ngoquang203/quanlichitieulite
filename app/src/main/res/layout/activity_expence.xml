@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".Expence"
     android:orientation="vertical"
-    android:background="@color/dark">
+    android:theme="@style/SCREEN">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
-        <ImageButton
+        android:padding="10dp"
+        android:gravity="center">
+        <ImageView
             android:id="@+id/expence_back"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/arrowleft"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/background_nobutton"
             android:contentDescription="@string/listview_erron"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:src="@drawable/left"
+            style="@style/Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW"/>
         <TextView
             android:gravity="start"
             android:layout_width="match_parent"
@@ -28,8 +28,7 @@
             android:paddingLeft="@dimen/regular2"
             android:text="Chi tiền"
             android:fontFamily="@font/opensans_bold"
-            android:textSize="@dimen/title2"
-            android:textColor="@color/light"/>
+            android:textSize="@dimen/title2"/>
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -49,7 +48,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/regular2"
                     android:fontFamily="@font/opensans"
-                    android:textColor="@color/light20"
                     android:text="Bao nhiêu? (đơn vị : VND)"
                     android:layout_marginTop="@dimen/title2"/>
                 <com.google.android.material.textfield.TextInputLayout
@@ -61,11 +59,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/dark10"
+                        style="@style/BACKGROUNDTINT"
                         android:ems="10"
                         android:hint="0"
-                        android:textColorHint="@color/light10"
-                        android:textColor="@color/light"
                         android:inputType="number"
                         android:maxLength="10"
                         android:textSize="@dimen/title3"
@@ -80,8 +76,7 @@
                     android:layout_marginTop="7dp"
                     android:text="0 VND"
                     android:textSize="@dimen/regular2"
-                    android:fontFamily="@font/opensans"
-                    android:textColor="@color/light"/>
+                    android:fontFamily="@font/opensans"/>
             </LinearLayout>
 
             <LinearLayout
@@ -89,7 +84,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/background_partboder"
-                android:backgroundTint="@color/dark"
                 android:orientation="vertical">
                 <Spinner
                     android:id="@+id/expence_spinner"
@@ -97,6 +91,7 @@
                     android:layout_height="wrap_content"
 
                     android:background="@drawable/background_input"
+                    style="@style/BACKGROUNDTINT"
                     android:backgroundTint="@color/dark10"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -111,11 +106,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/background_input"
-                        android:backgroundTint="@color/dark10"
+                        style="@style/BACKGROUNDTINT"
                         android:ems="10"
                         android:hint="Ghi chú"
-                        android:textColor="@color/light"
-                        android:textColorHint="@color/light"
                         android:inputType="text"
                         android:textSize="@dimen/title3" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -126,12 +119,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/regular2"
                     android:background="@drawable/background_input"
-                    android:backgroundTint="@color/dark10"
+                    style="@style/Base.Widget.AppCompat.TextView.NEWTEXTVIEW"
                     android:drawableEnd="@drawable/edit"
-                    android:text="Ngày"
-                    android:textSize="@dimen/regular2"
                     android:fontFamily="@font/opensans"
-                    android:textColor="@color/light"/>
+                    android:gravity="center_vertical"
+                    android:text="Ngày"
+                    android:textSize="@dimen/regular2" />
 
                 <TextView
                     android:id="@+id/expence_time"
@@ -139,12 +132,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/regular2"
                     android:background="@drawable/background_input"
-                    android:backgroundTint="@color/dark10"
+                    style="@style/Base.Widget.AppCompat.TextView.NEWTEXTVIEW"
                     android:drawableEnd="@drawable/edit"
                     android:text="Thời gian"
                     android:textSize="@dimen/regular2"
-                    android:fontFamily="@font/opensans"
-                    android:textColor="@color/light"/>
+                    android:fontFamily="@font/opensans"/>
 
                 <Button
                     android:id="@+id/expence_button"
@@ -155,7 +147,6 @@
                     android:text="Thêm"
                     android:textSize="@dimen/title2"
                     android:theme="@style/Base.Theme.ThemeRed"
-                    android:textColor="@color/light"
                     android:fontFamily="@font/opensans"/>
             </LinearLayout>
         </LinearLayout>

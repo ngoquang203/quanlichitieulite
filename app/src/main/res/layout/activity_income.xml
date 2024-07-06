@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Income"
-    android:background="@color/dark">
+    android:theme="@style/SCREEN">
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <ImageButton
+        <ImageView
             android:id="@+id/income_back"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/upleft"
-            android:background="@drawable/background_nobutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:contentDescription="@string/listview_erron"
+            android:src="@drawable/left"
+            style="@style/Widget.MaterialComponents.ShapeableImageView.NEWIMAGEVIEW"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
         <TextView
@@ -30,8 +30,7 @@
             android:paddingLeft="@dimen/regular2"
             android:fontFamily="@font/opensans"
             android:textSize="@dimen/title2"
-            android:textStyle="bold"
-            android:textColor="@color/light100"/>
+            android:textStyle="bold"/>
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -51,7 +50,6 @@
                     android:textSize="@dimen/regular2"
                     android:fontFamily="@font/opensans"
                     android:textStyle="bold"
-                    android:textColor="@color/light"
                     android:text="Bao nhiêu? (đơn vị : VND)"
                     android:layout_marginTop="@dimen/title2" />
 
@@ -64,11 +62,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border"
-                        android:backgroundTint="@color/dark10"
+                        style="@style/BACKGROUNDTINT"
                         android:ems="10"
                         android:hint="0"
-                        android:textColorHint="@color/light10"
-                        android:textColor="@color/light"
                         android:maxLength="10"
                         android:inputType="number"
                         android:textSize="@dimen/title3"
@@ -82,8 +78,7 @@
                     android:layout_marginTop="7dp"
                     android:text="0 VND"
                     android:textSize="@dimen/regular2"
-                    android:fontFamily="@font/robuto_font"
-                    android:textColor="@color/light100"/>
+                    android:fontFamily="@font/robuto_font"/>
 
             </LinearLayout>
 
@@ -93,13 +88,13 @@
                 android:orientation="vertical"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/background_partboder"
-                android:backgroundTint="@color/dark">
+                style="@style/BACKGROUNDTINT">
                 <Spinner
                     android:id="@+id/income_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_input"
-                    android:backgroundTint="@color/dark10"/>
+                    style="@style/BACKGROUNDTINT"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -111,12 +106,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_input"
-                        android:backgroundTint="@color/dark10"
+                        style="@style/BACKGROUNDTINT"
                         android:textColor="@color/light"
                         android:ems="10"
                         android:hint="Ghi chú"
                         android:fontFamily="@font/opensans"
-                        android:textColorHint="@color/light"
                         android:inputType="text"
                         android:textSize="@dimen/regular2"
                         android:layout_marginTop="10dp"/>
@@ -125,11 +119,10 @@
                     android:id="@+id/income_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/dark10"
+                    style="@style/Base.Widget.AppCompat.TextView.NEWTEXTVIEW"
                     android:text="Ngày"
                     android:layout_marginTop="@dimen/regular2"
                     android:textSize="@dimen/regular2"
-                    android:textColor="@color/light"
                     android:fontFamily="@font/opensans"
                     android:background="@drawable/background_input"
                     android:drawableEnd="@drawable/edit"
@@ -138,9 +131,8 @@
                     android:id="@+id/income_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/dark10"
+                    style="@style/Base.Widget.AppCompat.TextView.NEWTEXTVIEW"
                     android:text="Thời gian"
-                    android:textColor="@color/light"
                     android:fontFamily="@font/opensans"
                     android:layout_marginTop="@dimen/regular2"
                     android:textSize="@dimen/regular2"
